@@ -1,0 +1,644 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Academic Journey | PhD Aspirant</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Custom CSS for animations and effects */
+        .fade-in {
+            animation: fadeIn 1.5s ease-in-out;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .gradient-text {
+            background: linear-gradient(90deg, #3b82f6, #8b5cf6);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        
+        .timeline-item:not(:last-child)::after {
+            content: '';
+            position: absolute;
+            left: 19px;
+            top: 30px;
+            height: calc(100% - 30px);
+            width: 2px;
+            background: #3b82f6;
+        }
+        
+        .publication-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+        
+        .nav-link {
+            position: relative;
+        }
+        
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -2px;
+            left: 0;
+            background-color: #3b82f6;
+            transition: width 0.3s ease;
+        }
+        
+        .nav-link:hover::after {
+            width: 100%;
+        }
+    </style>
+</head>
+<body class="bg-gray-50 font-sans text-gray-800">
+    <!-- Navigation -->
+    <nav class="fixed w-full bg-white shadow-sm z-50">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16">
+                <div class="flex items-center">
+                    <span class="text-xl font-bold gradient-text">PhD Journey</span>
+                </div>
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="#about" class="nav-link text-gray-700 hover:text-blue-600 transition">About</a>
+                    <a href="#research" class="nav-link text-gray-700 hover:text-blue-600 transition">Research</a>
+                    <a href="#education" class="nav-link text-gray-700 hover:text-blue-600 transition">Education</a>
+                    <a href="#publications" class="nav-link text-gray-700 hover:text-blue-600 transition">Publications</a>
+                    <a href="#contact" class="nav-link text-gray-700 hover:text-blue-600 transition">Contact</a>
+                </div>
+                <div class="md:hidden flex items-center">
+                    <button id="menu-btn" class="text-gray-700 hover:text-blue-600">
+                        <i class="fas fa-bars text-xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <!-- Mobile menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white py-2 px-4 shadow-lg">
+            <div class="flex flex-col space-y-3">
+                <a href="#about" class="nav-link text-gray-700 hover:text-blue-600 transition">About</a>
+                <a href="#research" class="nav-link text-gray-700 hover:text-blue-600 transition">Research</a>
+                <a href="#education" class="nav-link text-gray-700 hover:text-blue-600 transition">Education</a>
+                <a href="#publications" class="nav-link text-gray-700 hover:text-blue-600 transition">Publications</a>
+                <a href="#contact" class="nav-link text-gray-700 hover:text-blue-600 transition">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="pt-24 pb-16 md:pt-32 md:pb-24 bg-gradient-to-r from-blue-50 to-indigo-50">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="md:flex items-center">
+                <div class="md:w-1/2 mb-10 md:mb-0 fade-in">
+                    <h1 class="text-4xl md:text-5xl font-bold mb-4">Pursuing Knowledge Through <span class="gradient-text">Research</span></h1>
+                    <p class="text-lg text-gray-600 mb-6">I'm a passionate researcher dedicated to advancing knowledge in my field and contributing meaningful insights through rigorous academic work.</p>
+                    <div class="flex space-x-4">
+                        <a href="#research" class="px-6 py-3 bg-gradient-to-r from-blue-500 to-indigo-600 text-white rounded-lg shadow-md hover:shadow-lg transition">Explore My Research</a>
+                        <a href="#contact" class="px-6 py-3 border border-blue-500 text-blue-600 rounded-lg hover:bg-blue-50 transition">Contact Me</a>
+                    </div>
+                </div>
+                <div class="md:w-1/2 flex justify-center fade-in">
+                    <div class="relative w-64 h-64 md:w-80 md:h-80 bg-white rounded-full shadow-xl overflow-hidden border-4 border-white">
+                        <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5cd?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=688&q=80" alt="Researcher" class="w-full h-full object-cover">
+                        <div class="absolute inset-0 bg-blue-500 opacity-10"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- About Section -->
+    <section id="about" class="py-16 bg-white">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 fade-in">
+                <h2 class="text-3xl font-bold mb-4">About <span class="gradient-text">Me</span></h2>
+                <div class="w-20 h-1 bg-gradient-to-r from-blue-500 to-indigo-600 mx-auto"></div>
+            </div>
+            
+            <div class="md:flex items-center">
+                <div class="md:w-1/3 mb-8 md:mb-0 fade-in">
+                    <div class="bg-gray-100 p-6 rounded-xl shadow-sm">
+                        <h3 class="text-xl font-semibold mb-4">Research Interests</h3>
+                        <ul class="space-y-2">
+                            <li class="flex items-center">
+                                <i class="fas fa-circle text-blue-500 text-xs mr-2"></i>
+                                <span>Machine Learning Applications</span>
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-circle text-blue-500 text-xs mr-2"></i>
+                                <span>Data Science Methodologies</span>
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-circle text-blue-500 text-xs mr-2"></i>
+                                <span>Computational Neuroscience</span>
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-circle text-blue-500 text-xs mr-2"></i>
+                                <span>Artificial Intelligence Ethics</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="md:w-2/3 md:pl-12 fade-in">
+                    <h3 class="text-2xl font-semibold mb-4">My Academic Journey</h3>
+                    <p class="text-gray-600 mb-4">I am currently pursuing doctoral studies with a focus on developing novel machine learning approaches to analyze complex neurological data. My research aims to bridge the gap between computational methods and neuroscientific understanding.</p>
+                    <p class="text-gray-600 mb-6">With a strong foundation in both theoretical and applied aspects of computer science and neuroscience, I am passionate about interdisciplinary research that can lead to meaningful advancements in both fields.</p>
+                    
+                    <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                        <div class="bg-blue-50 p-4 rounded-lg text-center">
+                            <div class="text-blue-600 text-2xl mb-2">
+                                <i class="fas fa-graduation-cap"></i>
+                            </div>
+                            <h4 class="font-medium">M.Sc. Computer Science</h4>
+                            <p class="text-sm text-gray-600">University of Technology</p>
+                        </div>
+                        <div class="bg-indigo-50 p-4 rounded-lg text-center">
+                            <div class="text-indigo-600 text-2xl mb-2">
+                                <i class="fas fa-flask"></i>
+                            </div>
+                            <h4 class="font-medium">3+ Years Research</h4>
+                            <p class="text-sm text-gray-600">Experience</p>
+                        </div>
+                        <div class="bg-blue-50 p-4 rounded-lg text-center">
+                            <div class="text-blue-600 text-2xl mb-2">
+                                <i class="fas fa-file-alt"></i>
+                            </div>
+                            <h4 class="font-medium">5+ Publications</h4>
+                            <p class="text-sm text-gray-600">Peer-reviewed</p>
+                        </div>
+                        <div class="bg-indigo-50 p-4 rounded-lg text-center">
+                            <div class="text-indigo-600 text-2xl mb-2">
+                                <i class="fas fa-chalkboard-teacher"></i>
+                            </div>
+                            <h4 class="font-medium">Teaching</h4>
+                            <p class="text-sm text-gray-600">Assistant</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Research Section -->
+    <section id="research" class="py-16 bg-gray-50">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 fade-in">
+                <h2 class="text-3xl font-bold mb-4">My <span class="gradient-text">Research</span></h2>
+                <div class="w-20 h-1 bg-gradient-to-r from-blue-500 to-indigo-600 mx-auto"></div>
+            </div>
+            
+            <div class="grid md:grid-cols-2 gap-8">
+                <div class="bg-white p-8 rounded-xl shadow-sm hover:shadow-md transition fade-in">
+                    <div class="text-blue-500 text-4xl mb-4">
+                        <i class="fas fa-brain"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3">Neural Network Interpretability</h3>
+                    <p class="text-gray-600 mb-4">Developing novel visualization techniques to improve understanding of deep neural network decision-making processes, particularly in medical imaging applications.</p>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="px-3 py-1 bg-blue-100 text-blue-800 text-sm rounded-full">Deep Learning</span>
+                        <span class="px-3 py-1 bg-blue-100 text-blue-800 text-sm rounded-full">Explainable AI</span>
+                        <span class="px-3 py-1 bg-blue-100 text-blue-800 text-sm rounded-full">Medical Imaging</span>
+                    </div>
+                </div>
+                
+                <div class="bg-white p-8 rounded-xl shadow-sm hover:shadow-md transition fade-in">
+                    <div class="text-indigo-500 text-4xl mb-4">
+                        <i class="fas fa-dna"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3">Genomic Data Analysis</h3>
+                    <p class="text-gray-600 mb-4">Creating efficient algorithms for processing and analyzing large-scale genomic datasets to identify patterns relevant to neurological disorders.</p>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="px-3 py-1 bg-indigo-100 text-indigo-800 text-sm rounded-full">Bioinformatics</span>
+                        <span class="px-3 py-1 bg-indigo-100 text-indigo-800 text-sm rounded-full">Pattern Recognition</span>
+                        <span class="px-3 py-1 bg-indigo-100 text-indigo-800 text-sm rounded-full">Big Data</span>
+                    </div>
+                </div>
+                
+                <div class="bg-white p-8 rounded-xl shadow-sm hover:shadow-md transition fade-in">
+                    <div class="text-blue-500 text-4xl mb-4">
+                        <i class="fas fa-robot"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3">AI Ethics Framework</h3>
+                    <p class="text-gray-600 mb-4">Researching ethical considerations in AI development and proposing frameworks for responsible innovation in machine learning applications.</p>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="px-3 py-1 bg-blue-100 text-blue-800 text-sm rounded-full">Ethics</span>
+                        <span class="px-3 py-1 bg-blue-100 text-blue-800 text-sm rounded-full">Responsible AI</span>
+                        <span class="px-3 py-1 bg-blue-100 text-blue-800 text-sm rounded-full">Policy</span>
+                    </div>
+                </div>
+                
+                <div class="bg-white p-8 rounded-xl shadow-sm hover:shadow-md transition fade-in">
+                    <div class="text-indigo-500 text-4xl mb-4">
+                        <i class="fas fa-project-diagram"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3">Cognitive Modeling</h3>
+                    <p class="text-gray-600 mb-4">Building computational models of human cognition to better understand decision-making processes and potential biases.</p>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="px-3 py-1 bg-indigo-100 text-indigo-800 text-sm rounded-full">Cognitive Science</span>
+                        <span class="px-3 py-1 bg-indigo-100 text-indigo-800 text-sm rounded-full">Computational Models</span>
+                        <span class="px-3 py-1 bg-indigo-100 text-indigo-800 text-sm rounded-full">Psychology</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Education Section -->
+    <section id="education" class="py-16 bg-white">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 fade-in">
+                <h2 class="text-3xl font-bold mb-4">Academic <span class="gradient-text">Background</span></h2>
+                <div class="w-20 h-1 bg-gradient-to-r from-blue-500 to-indigo-600 mx-auto"></div>
+            </div>
+            
+            <div class="relative">
+                <div class="space-y-8">
+                    <!-- Timeline Item 1 -->
+                    <div class="timeline-item relative pl-12 fade-in">
+                        <div class="absolute left-0 top-0 w-10 h-10 rounded-full bg-blue-500 flex items-center justify-center text-white">
+                            <i class="fas fa-graduation-cap"></i>
+                        </div>
+                        <div class="bg-gray-50 p-6 rounded-lg shadow-sm">
+                            <div class="flex flex-col md:flex-row md:justify-between md:items-center mb-2">
+                                <h3 class="text-xl font-semibold">PhD in Computer Science</h3>
+                                <span class="text-blue-600 font-medium">2021 - Present</span>
+                            </div>
+                            <p class="text-gray-600 mb-2">University of Advanced Technology</p>
+                            <p class="text-gray-600">Focusing on machine learning applications in neuroscience. Dissertation title: "Interpretable Deep Learning Models for Neurological Data Analysis".</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Timeline Item 2 -->
+                    <div class="timeline-item relative pl-12 fade-in">
+                        <div class="absolute left-0 top-0 w-10 h-10 rounded-full bg-indigo-500 flex items-center justify-center text-white">
+                            <i class="fas fa-university"></i>
+                        </div>
+                        <div class="bg-gray-50 p-6 rounded-lg shadow-sm">
+                            <div class="flex flex-col md:flex-row md:justify-between md:items-center mb-2">
+                                <h3 class="text-xl font-semibold">Master of Science in Computer Science</h3>
+                                <span class="text-indigo-600 font-medium">2018 - 2020</span>
+                            </div>
+                            <p class="text-gray-600 mb-2">State University</p>
+                            <p class="text-gray-600">Specialized in Artificial Intelligence. Thesis: "Neural Network Architectures for Time-Series Prediction" (GPA: 3.9/4.0).</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Timeline Item 3 -->
+                    <div class="timeline-item relative pl-12 fade-in">
+                        <div class="absolute left-0 top-0 w-10 h-10 rounded-full bg-blue-500 flex items-center justify-center text-white">
+                            <i class="fas fa-book"></i>
+                        </div>
+                        <div class="bg-gray-50 p-6 rounded-lg shadow-sm">
+                            <div class="flex flex-col md:flex-row md:justify-between md:items-center mb-2">
+                                <h3 class="text-xl font-semibold">Bachelor of Science in Computer Engineering</h3>
+                                <span class="text-blue-600 font-medium">2014 - 2018</span>
+                            </div>
+                            <p class="text-gray-600 mb-2">Tech Institute</p>
+                            <p class="text-gray-600">Minor in Cognitive Science. Senior project: "EEG Signal Classification Using Machine Learning" (GPA: 3.8/4.0).</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Publications Section -->
+    <section id="publications" class="py-16 bg-gray-50">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 fade-in">
+                <h2 class="text-3xl font-bold mb-4">Selected <span class="gradient-text">Publications</span></h2>
+                <div class="w-20 h-1 bg-gradient-to-r from-blue-500 to-indigo-600 mx-auto"></div>
+            </div>
+            
+            <div class="grid md:grid-cols-2 gap-8">
+                <!-- Publication 1 -->
+                <div class="publication-card bg-white p-6 rounded-xl shadow-sm transition duration-300 fade-in">
+                    <div class="flex items-start mb-4">
+                        <div class="bg-blue-100 p-3 rounded-lg mr-4">
+                            <i class="fas fa-file-alt text-blue-600 text-xl"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-semibold mb-1">Interpretable Neural Networks for Medical Diagnosis</h3>
+                            <p class="text-gray-600 text-sm">Journal of Artificial Intelligence in Medicine, 2023</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 mb-4">Proposed a novel visualization technique that provides clinicians with interpretable explanations for neural network decisions in medical imaging tasks.</p>
+                    <div class="flex justify-between items-center">
+                        <a href="#" class="text-blue-600 hover:text-blue-800 font-medium">Read Paper →</a>
+                        <span class="px-3 py-1 bg-blue-100 text-blue-800 text-sm rounded-full">Impact Factor: 4.2</span>
+                    </div>
+                </div>
+                
+                <!-- Publication 2 -->
+                <div class="publication-card bg-white p-6 rounded-xl shadow-sm transition duration-300 fade-in">
+                    <div class="flex items-start mb-4">
+                        <div class="bg-indigo-100 p-3 rounded-lg mr-4">
+                            <i class="fas fa-chart-bar text-indigo-600 text-xl"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-semibold mb-1">Time-Series Analysis of Neural Data</h3>
+                            <p class="text-gray-600 text-sm">Neural Computation, 2022</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 mb-4">Developed a new method for analyzing high-dimensional neural time-series data that improves pattern recognition accuracy by 18% over existing techniques.</p>
+                    <div class="flex justify-between items-center">
+                        <a href="#" class="text-indigo-600 hover:text-indigo-800 font-medium">Read Paper →</a>
+                        <span class="px-3 py-1 bg-indigo-100 text-indigo-800 text-sm rounded-full">Impact Factor: 3.7</span>
+                    </div>
+                </div>
+                
+                <!-- Publication 3 -->
+                <div class="publication-card bg-white p-6 rounded-xl shadow-sm transition duration-300 fade-in">
+                    <div class="flex items-start mb-4">
+                        <div class="bg-blue-100 p-3 rounded-lg mr-4">
+                            <i class="fas fa-dna text-blue-600 text-xl"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-semibold mb-1">Genomic Data Compression Techniques</h3>
+                            <p class="text-gray-600 text-sm">Bioinformatics, 2021</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 mb-4">Introduced an efficient compression algorithm for genomic data that reduces storage requirements by 40% while maintaining analytical accuracy.</p>
+                    <div class="flex justify-between items-center">
+                        <a href="#" class="text-blue-600 hover:text-blue-800 font-medium">Read Paper →</a>
+                        <span class="px-3 py-1 bg-blue-100 text-blue-800 text-sm rounded-full">Impact Factor: 5.1</span>
+                    </div>
+                </div>
+                
+                <!-- Publication 4 -->
+                <div class="publication-card bg-white p-6 rounded-xl shadow-sm transition duration-300 fade-in">
+                    <div class="flex items-start mb-4">
+                        <div class="bg-indigo-100 p-3 rounded-lg mr-4">
+                            <i class="fas fa-robot text-indigo-600 text-xl"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-semibold mb-1">Ethical AI Development Framework</h3>
+                            <p class="text-gray-600 text-sm">AI & Society, 2020</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 mb-4">Proposed a comprehensive framework for evaluating ethical considerations throughout the AI development lifecycle, adopted by several research institutions.</p>
+                    <div class="flex justify-between items-center">
+                        <a href="#" class="text-indigo-600 hover:text-indigo-800 font-medium">Read Paper →</a>
+                        <span class="px-3 py-1 bg-indigo-100 text-indigo-800 text-sm rounded-full">Impact Factor: 2.9</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center mt-12 fade-in">
+                <a href="#" class="inline-flex items-center px-6 py-3 border border-blue-500 text-blue-600 rounded-lg hover:bg-blue-50 transition">
+                    View All Publications
+                    <i class="fas fa-arrow-right ml-2"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-16 bg-white">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 fade-in">
+                <h2 class="text-3xl font-bold mb-4">Get In <span class="gradient-text">Touch</span></h2>
+                <div class="w-20 h-1 bg-gradient-to-r from-blue-500 to-indigo-600 mx-auto"></div>
+            </div>
+            
+            <div class="md:flex">
+                <div class="md:w-1/2 mb-10 md:mb-0 md:pr-8 fade-in">
+                    <h3 class="text-2xl font-semibold mb-4">Let's Collaborate</h3>
+                    <p class="text-gray-600 mb-6">I'm always interested in discussing research opportunities, collaborations, or potential PhD supervision. Feel free to reach out with any questions or ideas.</p>
+                    
+                    <div class="space-y-4">
+                        <div class="flex items-start">
+                            <div class="bg-blue-100 p-3 rounded-lg mr-4">
+                                <i class="fas fa-envelope text-blue-600"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-medium">Email</h4>
+                                <p class="text-gray-600">researcher@university.edu</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start">
+                            <div class="bg-indigo-100 p-3 rounded-lg mr-4">
+                                <i class="fas fa-map-marker-alt text-indigo-600"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-medium">Location</h4>
+                                <p class="text-gray-600">Department of Computer Science<br>University of Advanced Technology</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start">
+                            <div class="bg-blue-100 p-3 rounded-lg mr-4">
+                                <i class="fas fa-phone-alt text-blue-600"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-medium">Phone</h4>
+                                <p class="text-gray-600">+1 (555) 123-4567</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="mt-8">
+                        <h4 class="font-medium mb-4">Connect With Me</h4>
+                        <div class="flex space-x-4">
+                            <a href="#" class="w-10 h-10 rounded-full bg-blue-100 text-blue-600 flex items-center justify-center hover:bg-blue-200 transition">
+                                <i class="fab fa-linkedin-in"></i>
+                            </a>
+                            <a href="#" class="w-10 h-10 rounded-full bg-blue-100 text-blue-600 flex items-center justify-center hover:bg-blue-200 transition">
+                                <i class="fab fa-twitter"></i>
+                            </a>
+                            <a href="#" class="w-10 h-10 rounded-full bg-blue-100 text-blue-600 flex items-center justify-center hover:bg-blue-200 transition">
+                                <i class="fab fa-github"></i>
+                            </a>
+                            <a href="#" class="w-10 h-10 rounded-full bg-blue-100 text-blue-600 flex items-center justify-center hover:bg-blue-200 transition">
+                                <i class="fab fa-google-scholar"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="md:w-1/2 fade-in">
+                    <form class="bg-gray-50 p-8 rounded-xl shadow-sm">
+                        <div class="mb-4">
+                            <label for="name" class="block text-gray-700 font-medium mb-2">Name</label>
+                            <input type="text" id="name" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent">
+                        </div>
+                        
+                        <div class="mb-4">
+                            <label for="email" class="block text-gray-700 font-medium mb-2">Email</label>
+                            <input type="email" id="email" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent">
+                        </div>
+                        
+                        <div class="mb-4">
+                            <label for="subject" class="block text-gray-700 font-medium mb-2">Subject</label>
+                            <input type="text" id="subject" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent">
+                        </div>
+                        
+                        <div class="mb-6">
+                            <label for="message" class="block text-gray-700 font-medium mb-2">Message</label>
+                            <textarea id="message" rows="5" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"></textarea>
+                        </div>
+                        
+                        <button type="submit" class="w-full bg-gradient-to-r from-blue-500 to-indigo-600 text-white py-3 rounded-lg shadow-md hover:shadow-lg transition flex items-center justify-center">
+                            Send Message
+                            <i class="fas fa-paper-plane ml-2"></i>
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-8 bg-gray-900 text-gray-300">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="md:flex md:justify-between">
+                <div class="mb-6 md:mb-0">
+                    <span class="text-xl font-bold gradient-text">PhD Journey</span>
+                    <p class="mt-2 text-gray-400">Pursuing knowledge through rigorous research and academic excellence.</p>
+                </div>
+                
+                <div class="grid grid-cols-2 gap-8 sm:grid-cols-3">
+                    <div>
+                        <h3 class="text-white font-medium mb-4">Navigation</h3>
+                        <ul class="space-y-2">
+                            <li><a href="#about" class="text-gray-400 hover:text-white transition">About</a></li>
+                            <li><a href="#research" class="text-gray-400 hover:text-white transition">Research</a></li>
+                            <li><a href="#education" class="text-gray-400 hover:text-white transition">Education</a></li>
+                            <li><a href="#publications" class="text-gray-400 hover:text-white transition">Publications</a></li>
+                            <li><a href="#contact" class="text-gray-400 hover:text-white transition">Contact</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div>
+                        <h3 class="text-white font-medium mb-4">Research</h3>
+                        <ul class="space-y-2">
+                            <li><a href="#" class="text-gray-400 hover:text-white transition">Current Projects</a></li>
+                            <li><a href="#" class="text-gray-400 hover:text-white transition">Publications</a></li>
+                            <li><a href="#" class="text-gray-400 hover:text-white transition">Collaborations</a></li>
+                            <li><a href="#" class="text-gray-400 hover:text-white transition">Conferences</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div>
+                        <h3 class="text-white font-medium mb-4">Connect</h3>
+                        <ul class="space-y-2">
+                            <li><a href="#" class="text-gray-400 hover:text-white transition">LinkedIn</a></li>
+                            <li><a href="#" class="text-gray-400 hover:text-white transition">Google Scholar</a></li>
+                            <li><a href="#" class="text-gray-400 hover:text-white transition">ResearchGate</a></li>
+                            <li><a href="#" class="text-gray-400 hover:text-white transition">ORCID</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <hr class="my-6 border-gray-700">
+            
+            <div class="sm:flex sm:justify-between">
+                <p class="text-gray-400">© 2023 PhD Journey. All rights reserved.</p>
+                <div class="flex space-x-6 mt-4 sm:mt-0">
+                    <a href="#" class="text-gray-400 hover:text-white transition">
+                        <i class="fab fa-facebook-f"></i>
+                    </a>
+                    <a href="#" class="text-gray-400 hover:text-white transition">
+                        <i class="fab fa-twitter"></i>
+                    </a>
+                    <a href="#" class="text-gray-400 hover:text-white transition">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                    <a href="#" class="text-gray-400 hover:text-white transition">
+                        <i class="fab fa-linkedin-in"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <button id="back-to-top" class="fixed bottom-8 right-8 w-12 h-12 bg-blue-600 text-white rounded-full shadow-lg flex items-center justify-center opacity-0 invisible transition-all duration-300">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <script>
+        // Mobile menu toggle
+        const menuBtn = document.getElementById('menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        
+        menuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+        
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                
+                window.scrollTo({
+                    top: targetElement.offsetTop - 80,
+                    behavior: 'smooth'
+                });
+                
+                // Close mobile menu if open
+                mobileMenu.classList.add('hidden');
+            });
+        });
+        
+        // Back to top button
+        const backToTopBtn = document.getElementById('back-to-top');
+        
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 300) {
+                backToTopBtn.classList.remove('opacity-0', 'invisible');
+                backToTopBtn.classList.add('opacity-100', 'visible');
+            } else {
+                backToTopBtn.classList.remove('opacity-100', 'visible');
+                backToTopBtn.classList.add('opacity-0', 'invisible');
+            }
+        });
+        
+        backToTopBtn.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+        
+        // Fade-in animation on scroll
+        const fadeElements = document.querySelectorAll('.fade-in');
+        
+        const fadeInOnScroll = () => {
+            fadeElements.forEach(element => {
+                const elementTop = element.getBoundingClientRect().top;
+                const windowHeight = window.innerHeight;
+                
+                if (elementTop < windowHeight - 100) {
+                    element.style.opacity = '1';
+                    element.style.transform = 'translateY(0)';
+                }
+            });
+        };
+        
+        // Set initial state
+        fadeElements.forEach(element => {
+            element.style.opacity = '0';
+            element.style.transform = 'translateY(20px)';
+            element.style.transition = 'opacity 0.6s ease-out, transform 0.6s ease-out';
+        });
+        
+        window.addEventListener('load', fadeInOnScroll);
+        window.addEventListener('scroll', fadeInOnScroll);
+    </script>
+</body>
+</html>
