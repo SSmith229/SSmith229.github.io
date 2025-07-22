@@ -6,178 +6,186 @@
   <title>Stuart Smith — Future Exoplanet Scientist</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
-  <style>
-    .gradient-text {
-      background: linear-gradient(90deg, #2563eb, #6366f1);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-    }
-  </style>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 
-<body class="bg-gray-50 font-sans text-gray-800 relative">
+<body class="bg-gray-50 font-sans text-gray-800">
 
-  <!-- Navigation -->
-  <nav class="fixed w-full bg-white shadow-sm z-50">
-    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="flex justify-between h-16">
-        <div class="flex items-center">
-          <span class="text-xl font-bold gradient-text cursor-default">Stuart Smith</span>
-        </div>
-        <div class="hidden md:flex items-center space-x-8">
-          <a href="#about" class="nav-link text-gray-700 hover:text-blue-600 transition">About</a>
-          <a href="#research" class="nav-link text-gray-700 hover:text-blue-600 transition">Research</a>
-          <a href="#contact" class="nav-link text-gray-700 hover:text-blue-600 transition">Contact</a>
-        </div>
-        <div class="md:hidden flex items-center">
-          <button id="menu-btn" class="text-gray-700 hover:text-blue-600" aria-label="Toggle Menu">
-            <i class="fas fa-bars text-xl"></i>
-          </button>
-        </div>
-      </div>
-    </div>
-    <!-- Mobile menu -->
-    <div id="mobile-menu" class="hidden md:hidden bg-white py-2 px-4 shadow-lg">
-      <div class="flex flex-col space-y-3">
-        <a href="#about" class="nav-link text-gray-700 hover:text-blue-600 transition">About</a>
-        <a href="#research" class="nav-link text-gray-700 hover:text-blue-600 transition">Research</a>
-        <a href="#contact" class="nav-link text-gray-700 hover:text-blue-600 transition">Contact</a>
-      </div>
-    </div>
-  </nav>
-
-  <!-- Hero Section -->
-  <section id="hero" class="relative overflow-hidden bg-gradient-to-r from-blue-50 to-indigo-50 min-h-[600px]">
-    <!-- Twinkling stars canvas -->
-    <canvas id="starCanvas" class="absolute top-0 left-0 w-full h-full z-10 pointer-events-none"></canvas>
-
-    <header class="pt-24 pb-16 md:pt-32 md:pb-24 relative z-20">
-      <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="md:flex items-center">
-          <div class="md:w-1/2 mb-10 md:mb-0 fade-in">
-            <h1 class="text-4xl md:text-5xl font-bold mb-4">
-              Searching For <span class="gradient-text">Exoplanets</span>
-            </h1>
-            <p class="text-lg text-gray-600 mb-6">
-              An MSc student with a passion for Exoplanet science!
-            </p>
-            <div class="flex flex-wrap gap-4">
-              <a href="#research"
-                class="px-6 py-3 bg-gradient-to-r from-blue-500 to-indigo-600 text-white rounded-lg shadow-md hover:shadow-lg transition">Explore My Research</a>
-              <a href="#contact"
-                class="px-6 py-3 border border-blue-500 text-blue-600 rounded-lg hover:bg-blue-50 transition">Contact Me</a>
-              <a href="Documents/StuartSmithCV.pdf" target="_blank"
-                class="inline-flex items-center justify-center bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 transition">Download
-                My CV!</a>
+    <!-- Navigation -->
+    <nav class="fixed w-full bg-white shadow-sm z-50">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16">
+                <div class="flex items-center">
+                    <span class="text-xl font-bold gradient-text">Stuart Smith</span>
+                </div>
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="#about" class="nav-link text-gray-700 hover:text-blue-600 transition">About</a>
+                    <a href="#research" class="nav-link text-gray-700 hover:text-blue-600 transition">Research</a>
+                    <a href="#contact" class="nav-link text-gray-700 hover:text-blue-600 transition">Contact</a>
+                </div>
+                <div class="md:hidden flex items-center">
+                    <button id="menu-btn" class="text-gray-700 hover:text-blue-600">
+                        <i class="fas fa-bars text-xl"></i>
+                    </button>
+                </div>
             </div>
-          </div>
-          <div class="md:w-1/2 flex justify-center fade-in">
-            <div
-              class="relative w-64 h-64 md:w-80 md:h-80 bg-white rounded-full shadow-xl overflow-hidden border-4 border-white">
-              <img src="images/ProfileTest.jpg" alt="Me!" class="w-full h-full object-cover" />
-              <div class="absolute inset-0 bg-blue-500 opacity-10"></div>
-            </div>
-          </div>
         </div>
-      </div>
-    </header>
-  </section>
+        <!-- Mobile menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white py-2 px-4 shadow-lg">
+            <div class="flex flex-col space-y-3">
+                <a href="#about" class="nav-link text-gray-700 hover:text-blue-600 transition">About</a>
+                <a href="#research" class="nav-link text-gray-700 hover:text-blue-600 transition">Research</a>
+                <a href="#contact" class="nav-link text-gray-700 hover:text-blue-600 transition">Contact</a>
+            </div>
+        </div>
+    </nav>
 
-  <!-- About Section -->
-  <section id="about" class="py-16 bg-white">
+   <!-- Hero Section -->
+<section id="hero" class="relative overflow-hidden bg-gradient-to-r from-blue-50 to-indigo-50">
+  <!-- Twinkling stars canvas -->
+  <canvas id="starCanvas" class="absolute top-0 left-0 w-full h-full z-10 pointer-events-none"></canvas>
+
+  <header class="pt-24 pb-16 md:pt-32 md:pb-24 relative z-0">
     <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="text-center mb-16 fade-in">
-        <h2 class="text-3xl font-bold mb-4">About <span class="gradient-text">Me</span></h2>
-        <div class="w-20 h-1 bg-gradient-to-r from-blue-500 to-indigo-600 mx-auto"></div>
-      </div>
-
       <div class="md:flex items-center">
-        <div class="md:w-1/3 mb-8 md:mb-0 fade-in">
-          <div class="bg-gray-100 p-6 rounded-xl shadow-sm">
-            <h3 class="text-xl font-semibold mb-4">Research Interests</h3>
-            <ul class="space-y-2">
-              <li class="flex items-center">
-                <i class="fas fa-circle text-blue-500 text-xs mr-2"></i>
-                <span>Machine Learning Applications for Light Curve Analysis</span>
-              </li>
-              <li class="flex items-center">
-                <i class="fas fa-circle text-blue-500 text-xs mr-2"></i>
-                <span>Exoplanet Detection with CubeSat Technology</span>
-              </li>
-              <li class="flex items-center">
-                <i class="fas fa-circle text-blue-500 text-xs mr-2"></i>
-                <span>Development of Spacecraft Instrumentation</span>
-              </li>
-              <li class="flex items-center">
-                <i class="fas fa-circle text-blue-500 text-xs mr-2"></i>
-                <span>Exoplanetary Atmospherics</span>
-              </li>
-              <li class="flex items-center">
-                <i class="fas fa-circle text-blue-500 text-xs mr-2"></i>
-                <span>Transit Curve Anomalies</span>
-              </li>
-              <li class="flex items-center">
-                <i class="fas fa-circle text-blue-500 text-xs mr-2"></i>
-                <span>Planet Formation Around Multiple Star Systems</span>
-              </li>
-            </ul>
+        <div class="md:w-1/2 mb-10 md:mb-0 fade-in">
+          <h1 class="text-4xl md:text-5xl font-bold mb-4">
+            Searching For <span class="gradient-text">Exoplanets</span>
+          </h1>
+          <p class="text-lg text-gray-600 mb-6">
+            An MSc student with a passion for Exoplanet science!
+          </p>
+          <div class="flex flex-wrap gap-4">
+            <a href="#research"
+              class="px-6 py-3 bg-gradient-to-r from-blue-500 to-indigo-600 text-white rounded-lg shadow-md hover:shadow-lg transition">Explore My Research</a>
+            <a href="#contact"
+              class="px-6 py-3 border border-blue-500 text-blue-600 rounded-lg hover:bg-blue-50 transition">Contact Me</a>
+            <a href="Documents/StuartSmithCV.pdf" target="_blank"
+              class="inline-flex items-center justify-center bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 transition">Download
+              My CV!</a>
           </div>
         </div>
-        <div class="md:w-2/3 md:pl-12 fade-in">
-          <p class="text-gray-600 mb-4">After losing my sense of purpose during service in the Royal Air Force, I turned my attention back to my historic passion: Astronomy! Whilst undertaking my undergraduate research at Birkbeck College, I fell in love with all things exoplanetary, and regained my direction in life. The idea that all of these exoplanets are out in the cosmos, orbiting their stars, and just waiting for us to come along and find them had me totally hooked! To further my goals, I am currently undertaking an MSc in Space Exploration Systems at the University of Leicester. My ultimate goal is to undertake a PhD in exoplanet detection or the development of instrumentation specifically tailored to identifying the smallest, most challenging exoplanets to observe. If you share similar interests or just want to connect — connect with me on LinkedIn!</p>
-          <p class="text-gray-600 mb-6">Away from exoplanets, I am a keen trail runner with the long term goal of running the Western States 100, the Moab 240, and UTMB. Sport is a huge passion, and I am a loyal (and long suffering) supporter of Southampton FC, as well as closely following Formula 1, and Cricket. My partner and I run a small travel channel on YouTube for fun!</p>
-          <h3 class="text-2xl font-semibold mb-4">My Academic Journey</h3>
-          <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
-            <div class="bg-blue-50 p-4 rounded-lg text-center">
-              <div class="text-blue-600 text-2xl mb-2">
-                <i class="fas fa-university"></i>
-              </div>
-              <h4 class="font-medium">MSc Space Exploration Systems</h4>
-              <p class="text-sm text-gray-600">University of Leicester</p>
-            </div>
-            <div class="bg-blue-50 p-4 rounded-lg text-center">
-              <div class="text-blue-600 text-2xl mb-2">
-                <i class="fas fa-graduation-cap"></i>
-              </div>
-              <h4 class="font-medium">BSc Astronomy and Physics</h4>
-              <p class="text-sm text-gray-600">Birkbeck, University of London</p>
-            </div>
-            <div class="bg-blue-50 p-4 rounded-lg text-center">
-              <div class="text-blue-600 text-2xl mb-2">
-                <i class="fas fa-award"></i>
-              </div>
-              <h4 class="font-medium">Outstanding Graduate Award</h4>
-              <p class="text-sm text-gray-600">For Excellence in Research</p>
-            </div>
-            <div class="bg-blue-50 p-4 rounded-lg text-center">
-              <div class="text-blue-600 text-2xl mb-2">
-                <i class="fas fa-book"></i>
-              </div>
-              <h4 class="font-medium">Numerous Publications</h4>
-              <p class="text-sm text-gray-600">In Peer-Reviewed Journals</p>
-            </div>
+        <div class="md:w-1/2 flex justify-center fade-in">
+          <div
+            class="relative w-64 h-64 md:w-80 md:h-80 bg-white rounded-full shadow-xl overflow-hidden border-4 border-white">
+            <img src="images/ProfileTest.jpg" alt="Me!" class="w-full h-full object-cover">
+            <div class="absolute inset-0 bg-blue-500 opacity-10"></div>
           </div>
         </div>
       </div>
     </div>
-  </section>
+  </header>
+</section>
 
-  <!-- Research Section -->
-  <section id="research" class="py-16 bg-gray-50">
-    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="text-center mb-16 fade-in">
-        <h2 class="text-3xl font-bold mb-4">My <span class="gradient-text">Research</span></h2>
-        <div class="w-20 h-1 bg-gradient-to-r from-blue-500 to-indigo-600 mx-auto"></div>
-      </div>
-      <p class="mb-6 text-gray-700 fade-in">
-        I have a strong passion for exoplanet science and my current research explores machine learning methods for transit curve analysis, development of nanosatellite instrumentation for exoplanet detection, and investigations into transit curve anomalies.
-      </p>
-      <!-- You can expand this section as needed -->
-    </div>
-  </section>
+    <!-- About Section -->
+    <section id="about" class="py-16 bg-white">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 fade-in">
+                <h2 class="text-3xl font-bold mb-4">About <span class="gradient-text">Me</span></h2>
+                <div class="w-20 h-1 bg-gradient-to-r from-blue-500 to-indigo-600 mx-auto"></div>
+            </div>
+            
+            <div class="md:flex items-center">
+                <div class="md:w-1/3 mb-8 md:mb-0 fade-in">
+                    <div class="bg-gray-100 p-6 rounded-xl shadow-sm">
+                        <h3 class="text-xl font-semibold mb-4">Research Interests</h3>
+                        <ul class="space-y-2">
+                            <li class="flex items-center">
+                                <i class="fas fa-circle text-blue-500 text-xs mr-2"></i>
+                                <span>Machine Learning Applications for Light Curve Analysis</span>
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-circle text-blue-500 text-xs mr-2"></i>
+                                <span>Exoplanet Detection with CubeSat Technology</span>
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-circle text-blue-500 text-xs mr-2"></i>
+                                <span>Development of Spacecraft Instrumentation</span>
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-circle text-blue-500 text-xs mr-2"></i>
+                                <span>Exoplanetary Atmospherics</span>
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-circle text-blue-500 text-xs mr-2"></i>
+                                <span>Transit Curve Anomolies</span>
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-circle text-blue-500 text-xs mr-2"></i>
+                                <span>Planet Formation Around Multiple Star Systems</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="md:w-2/3 md:pl-12 fade-in">
+                    <p class="text-gray-600 mb-4">After losing my sense of purpose during service in the Royal Air Force, I turned my attention back to my historic passion: Astronomy! Whilst undertaking my undergraduate research at Birkeck College, I fell in love with all things exoplanetary, and regained my direction in life. The idea that all of these exoplanets are out in the cosmos, orbiting their stars, and just waiting
+                        for us to come along and find them had me totally hooked! To further my goals, I am currently undertaking an MSc in Space Exploration Systems at the University of Leicester. My ultimate goal is to undertake a PhD in exoplanet detection or the development of instrumentation specifically tailored to identifying the smallest, most challenging exoplanets to observe. If you share similar interests or just want to connect — connect with me on LinkedIn!
+                    </p>
+                    <p class="text-gray-600 mb-6">Away from exoplanets, I am a keen trail runner with the long term goal of running the Western States 100, the Moab 240, and UTMB. Sport is a huge passion, and I am a loyal (and long suffering) supporter of Southampton FC, as well as closely following Forumla 1, and Cricket. My partner and I run a small travel channel on YouTube for fun! </p>
+                    <h3 class="text-2xl font-semibold mb-4">My Academic Journey</h3>
+                    <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                        <div class="bg-blue-50 p-4 rounded-lg text-center">
+                            <div class="text-blue-600 text-2xl mb-2">
+                                <i class="fas fa-university"></i>
+                            </div>
+                            <h4 class="font-medium">MSc Space Exploration Systems</h4>
+                            <p class="text-sm text-gray-600">University of Leicester</p>
+                        </div>
+                        <div class="bg-indigo-50 p-4 rounded-lg text-center">
+                            <div class="text-indigo-600 text-2xl mb-2">
+                                <i class="fas fa-graduation-cap"></i>
+                            </div>
+                            <h4 class="font-medium">BSc Planetary Science with Astronomy</h4>
+                            <p class="text-sm text-gray-600">Birkbeck College, University of London</p>
+                        </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-  <!-- Contact Section -->
+    <!-- Research Section -->
+    <section id="research" class="py-16 bg-gray-50">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 fade-in">
+                <h2 class="text-3xl font-bold mb-4">My <span class="gradient-text">Research</span></h2>
+                <div class="w-20 h-1 bg-gradient-to-r from-blue-500 to-indigo-600 mx-auto"></div>
+            </div>
+            
+            <div class="grid md:grid-cols-2 gap-8">
+                <div class="bg-white p-8 rounded-xl shadow-sm hover:shadow-md transition fade-in">
+                    <div class="text-blue-500 text-4xl mb-4">
+                        <i class="fa-solid fa-satellite" style="color: #0216c7;"></i> <span class="text-green-300 text-sm"><b>Active Project</b></span>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3">Heliophyics Spacecraft Mission</h3>
+                    <p class="text-gray-600 mb-4">Interstellar Medium Mission Concept focussed on investigating the plasma processes and boundary dynamics of the heliosphere, and its interaction with the Local Interstellar Medium. This project is split between the University of Leicester, and the University of Dayton, Ohio, in conjunction with the Jet Propulsion Laboratory - California Institute of Technology. I oversee the mission's instrumentation, holding responsibility for designing and selecting the appropriate payload packages for the spacecraft.</p>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="px-3 py-1 bg-blue-100 text-blue-800 text-sm rounded-full">Heliophyics</span>
+                        <span class="px-3 py-1 bg-blue-100 text-blue-800 text-sm rounded-full">Mission Design</span>
+                        <span class="px-3 py-1 bg-blue-100 text-blue-800 text-sm rounded-full">Instrumentation</span>
+                    </div>
+                </div>
+                
+                <div class="bg-white p-8 rounded-xl shadow-sm hover:shadow-md transition fade-in">
+                    <div class="text-indigo-500 text-4xl mb-4">
+                        <i class="fa-solid fa-sun" style="color: #FFD43B;"></i> <span class="text-red-300 text-sm"><b>Previous Project</b></span>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3">Chasing Shadows: Identifying Undiscovered Exoplanets in Kepler’s Historical Data</h3>
+                    <p class="text-gray-600 mb-4">Undergraduate dissertation, focussing on a reanalysis of Kepler/K2 Light Curves, in a research area with little establishment support. My research was reliant on my own ability to set up such a project from scratch. 
+                        This involved pitching a unique research topic to the School, networking to source the most relevant supervisor, learning how to process large data sets, selecting a relevant analysis tool, and processing results.</p>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="px-3 py-1 bg-indigo-100 text-indigo-800 text-sm rounded-full">Transit Light Curve Analysis</span>
+                        <span class="px-3 py-1 bg-indigo-100 text-indigo-800 text-sm rounded-full">Exoplanet Detection</span>
+                        <span class="px-3 py-1 bg-indigo-100 text-indigo-800 text-sm rounded-full">Self-guided Research</span>
+                    </div>
+                </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+     <!-- Contact Section -->
   <section id="contact" class="py-16 bg-white">
     <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="text-center mb-16 fade-in">
@@ -207,120 +215,180 @@
     </div>
   </section>
 
-  <!-- Back to Top Button -->
-  <button id="backToTop" title="Back to top"
-    class="fixed bottom-6 right-6 p-3 rounded-full bg-blue-600 text-white text-xl shadow-lg hidden hover:bg-blue-700 transition z-50">
-    <i class="fas fa-arrow-up"></i>
-  </button>
+    <!-- Footer -->
+    <footer class="py-8 bg-gray-900 text-gray-300">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="md:flex md:justify-between">
+                <div class="mb-6 md:mb-0">
+                    <span class="text-xl font-bold gradient-text">Stuart Smith</span>
+                    <p class="mt-2 text-gray-400">Shooting for the Stars!</p>
+                </div>
+                
+                <div class="grid grid-cols-2 gap-8 sm:grid-cols-3">
+                    <div>
+                        <h3 class="text-white font-medium mb-4">Navigation</h3>
+                        <ul class="space-y-2">
+                            <li><a href="#about" class="text-gray-400 hover:text-white transition">About</a></li>
+                            <li><a href="#research" class="text-gray-400 hover:text-white transition">Research</a></li>
+                            <li><a href="#education" class="text-gray-400 hover:text-white transition">Education</a></li>
+                            <li><a href="#contact" class="text-gray-400 hover:text-white transition">Contact</a></li>
+                        </ul>
+                    </div>
+                                        
+                    <div>
+                        <h3 class="text-white font-medium mb-4">Connect</h3>
+                        <ul class="space-y-2">
+                            <a href="https://www.linkedin.com/in/stuartsmith229" target="_blank" rel="noopener noreferrer" class="w-10 h-10 rounded-full bg-blue-100 text-blue-600 flex items-center justify-center hover:bg-blue-200 transition">
+                             <i class="fab fa-linkedin-in text-lg"></i>
+                            </a>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <hr class="my-6 border-gray-700">
+            
+            <div class="sm:flex sm:justify-between">
+                <p class="text-gray-400">© 2025 Stuart Smith. All rights reserved.</p>
+                <div class="flex space-x-6 mt-4 sm:mt-0">
+                    <a href="www.linkedin.com/in/stuartsmith229" class="text-gray-400 hover:text-white transition">
+                        <i class="fab fa-linkedin-in"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
 
-  <!-- Scripts -->
-  <script>
-    // Mobile menu toggle
-    const menuBtn = document.getElementById('menu-btn');
-    const mobileMenu = document.getElementById('mobile-menu');
-    menuBtn.addEventListener('click', () => {
-      mobileMenu.classList.toggle('hidden');
-    });
+    <!-- Back to Top Button -->
+    <button id="back-to-top" class="fixed bottom-8 right-8 w-12 h-12 bg-blue-600 text-white rounded-full shadow-lg flex items-center justify-center opacity-0 invisible transition-all duration-300">
+        <i class="fas fa-arrow-up"></i>
+    </button>
 
-    // Smooth scrolling for nav links
-    document.querySelectorAll('a.nav-link').forEach(link => {
-      link.addEventListener('click', e => {
-        e.preventDefault();
-        const targetId = link.getAttribute('href').substring(1);
-        const targetEl = document.getElementById(targetId);
-        if (targetEl) {
-          window.scrollTo({
-            top: targetEl.offsetTop - 64, // offset for fixed nav height
-            behavior: 'smooth'
-          });
-        }
-        // Close mobile menu on click
-        if (!mobileMenu.classList.contains('hidden')) {
-          mobileMenu.classList.add('hidden');
-        }
+    <script>
+        // Mobile menu toggle
+        const menuBtn = document.getElementById('menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        
+        menuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+        
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                
+                window.scrollTo({
+                    top: targetElement.offsetTop - 80,
+                    behavior: 'smooth'
+                });
+                
+                // Close mobile menu if open
+                mobileMenu.classList.add('hidden');
+            });
+        });
+        
+        // Back to top button
+        const backToTopBtn = document.getElementById('back-to-top');
+        
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 300) {
+                backToTopBtn.classList.remove('opacity-0', 'invisible');
+                backToTopBtn.classList.add('opacity-100', 'visible');
+            } else {
+                backToTopBtn.classList.remove('opacity-100', 'visible');
+                backToTopBtn.classList.add('opacity-0', 'invisible');
+            }
+        });
+        
+        backToTopBtn.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+        
+        // Fade-in animation on scroll
+        const fadeElements = document.querySelectorAll('.fade-in');
+        
+        const fadeInOnScroll = () => {
+            fadeElements.forEach(element => {
+                const elementTop = element.getBoundingClientRect().top;
+                const windowHeight = window.innerHeight;
+                
+                if (elementTop < windowHeight - 100) {
+                    element.style.opacity = '1';
+                    element.style.transform = 'translateY(0)';
+                }
+            });
+        };
+        
+        // Set initial state
+        fadeElements.forEach(element => {
+            element.style.opacity = '0';
+            element.style.transform = 'translateY(20px)';
+            element.style.transition = 'opacity 0.6s ease-out, transform 0.6s ease-out';
+        });
+        
+        window.addEventListener('load', fadeInOnScroll);
+        window.addEventListener('scroll', fadeInOnScroll);
+    </script>
+<script>
+  const canvas = document.getElementById('starCanvas');
+  const ctx = canvas.getContext('2d');
+  const hero = document.getElementById('hero');
+  let stars = [];
+
+  function resizeCanvas() {
+    const rect = hero.getBoundingClientRect();
+    canvas.width = rect.width;
+    canvas.height = rect.height;
+    canvas.style.width = rect.width + "px";
+    canvas.style.height = rect.height + "px";
+  }
+
+  function createStars(count) {
+    stars = [];
+    for (let i = 0; i < count; i++) {
+      stars.push({
+        x: Math.random() * canvas.width,
+        y: Math.random() * canvas.height,
+        radius: Math.random() * 1.2 + 0.2,
+        alpha: Math.random(),
+        delta: Math.random() * 0.02
       });
-    });
-
-    // Back to top button behavior
-    const backToTop = document.getElementById('backToTop');
-    window.addEventListener('scroll', () => {
-      if (window.pageYOffset > 300) {
-        backToTop.classList.remove('hidden');
-      } else {
-        backToTop.classList.add('hidden');
-      }
-    });
-    backToTop.addEventListener('click', () => {
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    });
-
-    // Fade in elements on scroll
-    const fadeEls = document.querySelectorAll('.fade-in');
-    const observer = new IntersectionObserver(
-      entries => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('opacity-100', 'translate-y-0');
-            observer.unobserve(entry.target);
-          }
-        });
-      },
-      { threshold: 0.1 }
-    );
-    fadeEls.forEach(el => {
-      el.classList.add('opacity-0', 'translate-y-10', 'transition', 'duration-700', 'ease-out');
-      observer.observe(el);
-    });
-
-    // Twinkling stars in hero background
-    const canvas = document.getElementById('starCanvas');
-    const ctx = canvas.getContext('2d');
-    const hero = document.getElementById('hero');
-    let stars = [];
-
-    function resizeCanvas() {
-      canvas.width = hero.offsetWidth;
-      canvas.height = hero.offsetHeight;
     }
+  }
 
-    function createStars(count) {
-      stars = [];
-      for (let i = 0; i < count; i++) {
-        stars.push({
-          x: Math.random() * canvas.width,
-          y: Math.random() * canvas.height,
-          radius: Math.random() * 1.2 + 0.2,
-          alpha: Math.random(),
-          delta: Math.random() * 0.02
-        });
+  function animateStars() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    for (let star of stars) {
+      ctx.beginPath();
+      ctx.arc(star.x, star.y, star.radius, 0, 2 * Math.PI);
+      ctx.fillStyle = `rgba(255, 255, 255, ${star.alpha})`;
+      ctx.fill();
+
+      star.alpha += star.delta;
+      if (star.alpha <= 0 || star.alpha >= 1) {
+        star.delta *= -1;
       }
     }
+    requestAnimationFrame(animateStars);
+  }
 
-    function animateStars() {
-      ctx.clearRect(0, 0, canvas.width, canvas.height);
-      for (let star of stars) {
-        ctx.beginPath();
-        ctx.arc(star.x, star.y, star.radius, 0, 2 * Math.PI);
-        ctx.fillStyle = `rgba(255, 255, 255, ${star.alpha})`;
-        ctx.fill();
-
-        star.alpha += star.delta;
-        if (star.alpha <= 0 || star.alpha >= 1) {
-          star.delta *= -1;
-        }
-      }
-      requestAnimationFrame(animateStars);
-    }
-
-    window.addEventListener('resize', () => {
-      resizeCanvas();
-      createStars(120);
-    });
-
+  window.addEventListener('resize', () => {
     resizeCanvas();
     createStars(120);
-    animateStars();
-  </script>
+  });
+
+  resizeCanvas();
+  createStars(120);
+  animateStars();
+</script>
+
 
 </body>
 </html>
