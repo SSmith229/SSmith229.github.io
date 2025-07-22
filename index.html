@@ -42,31 +42,42 @@
         </div>
     </nav>
 
-    <!-- Hero Section -->
-    <!-- ⭐ Starfield Background -->
- <canvas id="starCanvas" class="fixed top-0 left-0 w-full h-full -z-10"></canvas>
+   <!-- Hero Section -->
+<section id="hero" class="relative overflow-hidden bg-gradient-to-r from-blue-50 to-indigo-50">
+  <!-- Twinkling stars canvas -->
+  <canvas id="starCanvas" class="absolute top-0 left-0 w-full h-full z-0 pointer-events-none"></canvas>
 
-    <header class="pt-24 pb-16 md:pt-32 md:pb-24 bg-gradient-to-r from-blue-50 to-indigo-50">
-        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="md:flex items-center">
-                <div class="md:w-1/2 mb-10 md:mb-0 fade-in">
-                    <h1 class="text-4xl md:text-5xl font-bold mb-4">Shooting For The <span class="gradient-text">Stars</span></h1>
-                    <p class="text-lg text-gray-600 mb-6">An MSc student with a passion for Exoplanet science!</p>
-                    <div class="flex space-x-4">
-                        <a href="#research" class="px-6 py-3 bg-gradient-to-r from-blue-500 to-indigo-600 text-white rounded-lg shadow-md hover:shadow-lg transition">Explore My Research</a>
-                        <a href="#contact" class="px-6 py-3 border border-blue-500 text-blue-600 rounded-lg hover:bg-blue-50 transition">Contact Me</a>
-                        <a href="Documents/StuartSmithCV.pdf" target="_blank" class="inline-flex items-center justify-center bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 transition">Download My CV!</a>
-                    </div>
-                </div>
-                <div class="md:w-1/2 flex justify-center fade-in">
-                    <div class="relative w-64 h-64 md:w-80 md:h-80 bg-white rounded-full shadow-xl overflow-hidden border-4 border-white">
-                        <img src="images/ProfileTest.jpg" alt="Me!" class="w-full h-full object-cover">
-                        <div class="absolute inset-0 bg-blue-500 opacity-10"></div>
-                    </div>
-                </div>
-            </div>
+  <header class="pt-24 pb-16 md:pt-32 md:pb-24 relative z-10">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="md:flex items-center">
+        <div class="md:w-1/2 mb-10 md:mb-0 fade-in">
+          <h1 class="text-4xl md:text-5xl font-bold mb-4">
+            Shooting For The <span class="gradient-text">Stars</span>
+          </h1>
+          <p class="text-lg text-gray-600 mb-6">
+            An MSc student with a passion for Exoplanet science!
+          </p>
+          <div class="flex flex-wrap gap-4">
+            <a href="#research"
+              class="px-6 py-3 bg-gradient-to-r from-blue-500 to-indigo-600 text-white rounded-lg shadow-md hover:shadow-lg transition">Explore My Research</a>
+            <a href="#contact"
+              class="px-6 py-3 border border-blue-500 text-blue-600 rounded-lg hover:bg-blue-50 transition">Contact Me</a>
+            <a href="Documents/StuartSmithCV.pdf" target="_blank"
+              class="inline-flex items-center justify-center bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 transition">Download
+              My CV!</a>
+          </div>
         </div>
-    </header>
+        <div class="md:w-1/2 flex justify-center fade-in">
+          <div
+            class="relative w-64 h-64 md:w-80 md:h-80 bg-white rounded-full shadow-xl overflow-hidden border-4 border-white">
+            <img src="images/ProfileTest.jpg" alt="Me!" class="w-full h-full object-cover">
+            <div class="absolute inset-0 bg-blue-500 opacity-10"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+</section>
 
     <!-- About Section -->
     <section id="about" class="py-16 bg-white">
@@ -297,58 +308,6 @@
         </div>
     </footer>
 
-<!-- ⭐ Starfield Animation Script -->
-  <script>
-    const canvas = document.getElementById('starCanvas');
-    const ctx = canvas.getContext('2d');
-
-    let stars = [];
-    const numStars = 150;
-
-    function resize() {
-      canvas.width = window.innerWidth;
-      canvas.height = window.innerHeight;
-    }
-
-    function createStars() {
-      stars = [];
-      for (let i = 0; i < numStars; i++) {
-        stars.push({
-          x: Math.random() * canvas.width,
-          y: Math.random() * canvas.height,
-          r: Math.random() * 1.5 + 0.5,
-          d: Math.random() * 0.5 + 0.2
-        });
-      }
-    }
-
-    function animateStars() {
-      ctx.clearRect(0, 0, canvas.width, canvas.height);
-      ctx.fillStyle = "white";
-      for (let i = 0; i < stars.length; i++) {
-        const s = stars[i];
-        ctx.beginPath();
-        ctx.arc(s.x, s.y, s.r, 0, 2 * Math.PI);
-        ctx.fill();
-        s.y += s.d;
-        if (s.y > canvas.height) {
-          s.y = 0;
-          s.x = Math.random() * canvas.width;
-        }
-      }
-      requestAnimationFrame(animateStars);
-    }
-
-    window.addEventListener('resize', () => {
-      resize();
-      createStars();
-    });
-
-    resize();
-    createStars();
-    animateStars();
-  </script>
-
     <!-- Back to Top Button -->
     <button id="back-to-top" class="fixed bottom-8 right-8 w-12 h-12 bg-blue-600 text-white rounded-full shadow-lg flex items-center justify-center opacity-0 invisible transition-all duration-300">
         <i class="fas fa-arrow-up"></i>
@@ -426,6 +385,59 @@
         window.addEventListener('load', fadeInOnScroll);
         window.addEventListener('scroll', fadeInOnScroll);
     </script>
+<script>
+  const canvas = document.getElementById('starCanvas');
+  const ctx = canvas.getContext('2d');
+  const hero = document.getElementById('hero');
+  let stars = [];
+
+  function resizeCanvas() {
+    const rect = hero.getBoundingClientRect();
+    canvas.width = rect.width;
+    canvas.height = rect.height;
+    canvas.style.width = rect.width + "px";
+    canvas.style.height = rect.height + "px";
+  }
+
+  function createStars(count) {
+    stars = [];
+    for (let i = 0; i < count; i++) {
+      stars.push({
+        x: Math.random() * canvas.width,
+        y: Math.random() * canvas.height,
+        radius: Math.random() * 1.2 + 0.2,
+        alpha: Math.random(),
+        delta: Math.random() * 0.02
+      });
+    }
+  }
+
+  function animateStars() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    for (let star of stars) {
+      ctx.beginPath();
+      ctx.arc(star.x, star.y, star.radius, 0, 2 * Math.PI);
+      ctx.fillStyle = `rgba(255, 255, 255, ${star.alpha})`;
+      ctx.fill();
+
+      star.alpha += star.delta;
+      if (star.alpha <= 0 || star.alpha >= 1) {
+        star.delta *= -1;
+      }
+    }
+    requestAnimationFrame(animateStars);
+  }
+
+  window.addEventListener('resize', () => {
+    resizeCanvas();
+    createStars(120);
+  });
+
+  resizeCanvas();
+  createStars(120);
+  animateStars();
+</script>
+
 
 </body>
 </html>
