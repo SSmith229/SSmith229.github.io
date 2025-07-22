@@ -42,10 +42,7 @@
 
    <!-- Hero Section -->
 <section id="hero" class="relative overflow-hidden bg-gradient-to-r from-blue-50 to-indigo-50">
-  <!-- Twinkling stars canvas -->
-  <canvas id="starCanvas" class="absolute top-0 left-0 w-full h-full z-10 pointer-events-none"></canvas>
-
-  <header class="pt-24 pb-16 md:pt-32 md:pb-24 relative z-0">
+    <header class="pt-24 pb-16 md:pt-32 md:pb-24 relative z-0">
     <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="md:flex items-center">
         <div class="md:w-1/2 mb-10 md:mb-0 fade-in">
@@ -336,59 +333,6 @@
         window.addEventListener('load', fadeInOnScroll);
         window.addEventListener('scroll', fadeInOnScroll);
     </script>
-<script>
-  const canvas = document.getElementById('starCanvas');
-  const ctx = canvas.getContext('2d');
-  const hero = document.getElementById('hero');
-  let stars = [];
-
-  function resizeCanvas() {
-    const rect = hero.getBoundingClientRect();
-    canvas.width = rect.width;
-    canvas.height = rect.height;
-    canvas.style.width = rect.width + "px";
-    canvas.style.height = rect.height + "px";
-  }
-
-  function createStars(count) {
-    stars = [];
-    for (let i = 0; i < count; i++) {
-      stars.push({
-        x: Math.random() * canvas.width,
-        y: Math.random() * canvas.height,
-        radius: Math.random() * 1.2 + 0.2,
-        alpha: Math.random(),
-        delta: Math.random() * 0.02
-      });
-    }
-  }
-
-  function animateStars() {
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
-    for (let star of stars) {
-      ctx.beginPath();
-      ctx.arc(star.x, star.y, star.radius, 0, 2 * Math.PI);
-      ctx.fillStyle = `rgba(255, 255, 255, ${star.alpha})`;
-      ctx.fill();
-
-      star.alpha += star.delta;
-      if (star.alpha <= 0 || star.alpha >= 1) {
-        star.delta *= -1;
-      }
-    }
-    requestAnimationFrame(animateStars);
-  }
-
-  window.addEventListener('resize', () => {
-    resizeCanvas();
-    createStars(120);
-  });
-
-  resizeCanvas();
-  createStars(120);
-  animateStars();
-</script>
-
 
 </body>
 </html>
