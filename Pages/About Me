@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>About Me – Space</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800;900&display=swap" rel="stylesheet">
+
+  <style>
+    :root{
+      /* Swap this to any image you like or pass ?bg=URL */
+      --bg-image: url('images/annular-solar-eclipse-2003461_1920.jpg');
+      --text-max: 46rem;
+    }
+
+    * { box-sizing: border-box; }
+    html, body { height: 100%; }
+    body {
+      margin: 0;
+      font-family: "Inter", system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+      color: #fff;
+      background: #000;
+    }
+
+    /* ===== Hero ===== */
+    .hero {
+      position: relative;
+      min-height: 70dvh;
+      display: grid;
+      grid-template-columns: 1fr minmax(0, 1280px) 1fr;
+      background-image:
+        radial-gradient(90rem 70rem at 25% 50%, rgba(0,0,0,0.05), rgba(0,0,0,0.4)),
+        linear-gradient( to right, rgba(0,0,0,0.75) 0%, rgba(0,0,0,0.55) 35%, rgba(0,0,0,0.25) 60%, rgba(0,0,0,0.55) 100% ),
+        var(--bg-image);
+      background-size: cover;
+      background-position: 50% 45%;
+      background-repeat: no-repeat;
+      isolation: isolate;
+    }
+
+    .hero__content {
+      grid-column: 2;
+      display: grid;
+      grid-template-columns: 1fr 380px;
+      gap: 2rem;
+      padding: clamp(1rem, 2.5vw, 2rem);
+      min-height: 70dvh;
+      align-items: center;
+    }
+
+    .headline { max-width: var(--text-max); animation: fadeInUp 600ms ease both; }
+    .headline h1{
+      margin: 0 0 1rem 0;
+      line-height: 0.95;
+      font-weight: 900;
+      letter-spacing: -0.02em;
+      font-size: clamp(2.4rem, 6vw + 0.2rem, 4.2rem);
+      text-wrap: balance;
+    }
+    .credit { margin-top: 1rem; font-weight: 400; font-size: clamp(0.8rem, 1vw + 0.2rem, 0.95rem); color: rgba(255,255,255,0.8); }
+    .credit a{ color: inherit; text-decoration: none; border-bottom: 2px solid rgba(255,255,255,0.5); padding-bottom: 2px; }
+    .credit a:hover{ border-color: #fff; }
+
+    /* ===== Right rail nav ===== */
+    .rail { align-self: center; justify-self: end; text-align: right; padding-right: clamp(0.5rem, 1.5vw, 1rem); }
+    .rail nav ul{ list-style: none; margin: 0; padding: 0; display: grid; gap: 0.65rem; }
+    .rail a{
+      color: #ffffff; text-decoration: none; font-weight: 800; letter-spacing: 0.08em; font-size: clamp(0.8rem, 0.9rem + 0.3vw, 1rem);
+      text-transform: uppercase; display: inline-block;
+      opacity: 0; transform: translateX(20px); transition: opacity 160ms ease, transform 160ms ease; animation: slideInRight 650ms ease-out forwards;
+    }
+    .rail a:hover{ opacity: 1; transform: translateX(18px); }
+    .rail li:nth-child(1) a { animation-delay: 120ms; }
+    .rail li:nth-child(2) a { animation-delay: 220ms; }
+    .rail li:nth-child(3) a { animation-delay: 320ms; }
+    .rail li:nth-child(4) a { animation-delay: 420ms; }
+
+    /* Active link styling */
+    .rail a[aria-current="page"] { opacity: 1; transform: none; border-bottom: 2px solid rgba(255,255,255,0.7); padding-bottom: 2px; }
+
+    @media (prefers-reduced-motion: reduce) { .rail a { animation: none; opacity: 1; transform: none; } }
+
+    /* ===== Small screens ===== */
+    @media (max-width: 980px) {
+      .hero__content { grid-template-columns: 1fr; }
+      .rail { justify-self: start; text-align: left; margin-top: 2rem; }
+      .rail a { letter-spacing: 0.1em; }
+      .headline h1 { font-size: clamp(2.2rem, 8vw, 3.4rem); }
+    }
+
+    /* ===== Content area ===== */
+    .content { max-width: 1000px; margin: 3rem auto 4rem; padding: 0 1.25rem; color: #e8e8e8; }
+    .intro { display: grid; grid-template-columns: 220px 1fr; gap: 1.5rem; align-items: start; }
+    .intro img { width: 100%; height: auto; border-radius: 16px; box-shadow: 0 10px 30px rgba(0,0,0,0.45); }
+    .intro h2 { margin: 0 0 0.75rem 0; font-size: 1.6rem; }
+    .intro p { line-height: 1.7; margin: 0 0 1rem 0; }
+
+    @media (max-width: 720px){ .intro { grid-template-columns: 1fr; } }
+
+    /* ===== Animations ===== */
+    @keyframes fadeInUp { from { opacity: 0; translate: 0 8px; } to { opacity: 1; translate: 0 0; } }
+    @keyframes slideInRight { from { opacity: 0; transform: translateX(28px); } to { opacity: 1; transform: translateX(0); } }
+  </style>
+</head>
+<body>
+  <main class="hero" role="main">
+    <div class="hero__content">
+      <!-- Left: page title -->
+      <section class="headline">
+        <h1>About Me</h1>
+      </section>
+
+      <!-- Right: nav -->
+      <aside class="rail" aria-label="Section navigation">
+        <nav>
+          <ul>
+            <li><a href="#space-programs">About Me</a></li>
+            <li><a href="#tech-trends">Projects</a></li>
+            <li><a href="#latest-news">Key Documents</a></li>
+            <li><a href="#about-us">Contact Me!</a></li>
+          </ul>
+        </nav>
+      </aside>
+    </div>
+  </main>
+
+  <section class="content">
+    <p><a href="index.html">← Back to Home</a></p>
+
+    <div class="intro">
+      <img src="https://images.unsplash.com/photo-1446776811953-b23d57bd21aa?q=80&w=800&auto=format&fit=crop" alt="Portrait placeholder" />
+      <div>
+        <h2>Hello! I’m <span style="font-weight:800">Your Name</span></h2>
+        <p>Write a short bio here—what you do, the projects you love, and what excites you about the space industry. This area can be a couple of paragraphs long and will wrap nicely on all screen sizes.</p>
+        <p>Feel free to replace the image with your own headshot and add links to your social profiles, resume, or portfolio.</p>
+      </div>
+    </div>
+
+    <hr style="margin:2.25rem 0; border:0; height:1px; background:linear-gradient(90deg,transparent,rgba(255,255,255,0.25),transparent);"/>
+
+    <h3>Contact</h3>
+    <p>Email: <a href="mailto:you@example.com">you@example.com</a></p>
+  </section>
+
+  <script>
+    // Optional: keep the ?bg=... override working
+    const params = new URLSearchParams(location.search);
+    const bg = params.get('bg');
+    if (bg) document.documentElement.style.setProperty('--bg-image', `url('${bg}')`);
+  </script>
+</body>
+</html>
