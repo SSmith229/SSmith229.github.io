@@ -18,6 +18,7 @@
 
     * { box-sizing: border-box; }
     html, body { height: 100%; }
+    html { scroll-behavior: smooth; } /* smooth in-page scrolling */
     body {
       margin: 0;
       font-family: "Inter", system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
@@ -109,7 +110,7 @@
   <main class="hero" role="main">
     <div class="hero__content">
       <!-- Left: page title -->
-      <section class="content" id="about-me">
+      <section class="headline">
         <h1>About Me</h1>
       </section>
 
@@ -127,7 +128,8 @@
     </div>
   </main>
 
-  <section class="content">
+  <!-- About content (anchor target) -->
+  <section class="content" id="about-me">
     <p><a href="index.html">← Back to Home</a></p>
 
     <div class="intro">
@@ -135,14 +137,28 @@
       <div>
         <h2>Hello! I’m <span style="font-weight:800">Your Name</span></h2>
         <p>After losing my sense of purpose during service in the Royal Air Force, I turned my attention back to my historic passion: Astronomy! Whilst undertaking my undergraduate research at Birkeck College, I fell in love with all things exoplanetary, and regained my direction in life. The idea that all of these exoplanets are out in the cosmos, orbiting their stars, and just waiting
-                        for us to come along and find them had me totally hooked! To further my goals, I am currently undertaking an MSc in Space Exploration Systems at the University of Leicester. My ultimate goal is to undertake a PhD in exoplanet detection or the development of instrumentation specifically tailored to identifying the smallest, most challenging exoplanets to observe. If you share similar interests or just want to connect — connect with me on LinkedIn!
-</p>
+          for us to come along and find them had me totally hooked! To further my goals, I am currently undertaking an MSc in Space Exploration Systems at the University of Leicester. My ultimate goal is to undertake a PhD in exoplanet detection or the development of instrumentation specifically tailored to identifying the smallest, most challenging exoplanets to observe. If you share similar interests or just want to connect — connect with me on LinkedIn!
+        </p>
         <p>Feel free to replace the image with your own headshot and add links to your social profiles, resume, or portfolio.</p>
       </div>
     </div>
+  </section>
 
-    <hr style="margin:2.25rem 0; border:0; height:1px; background:linear-gradient(90deg,transparent,rgba(255,255,255,0.25),transparent);"/>
+  <!-- Placeholder sections so the other right-rail links work -->
+  <section class="content" id="projects">
+    <h3>Projects</h3>
+    <p>Coming soon…</p>
+  </section>
 
+  <section class="content" id="key-documents">
+    <h3>Key Documents</h3>
+    <ul>
+      <li><a href="docs/cv.pdf">CV</a></li>
+      <li><a href="docs/research-summary.pdf">Research Summary</a></li>
+    </ul>
+  </section>
+
+  <section class="content" id="contact-me">
     <h3>Contact</h3>
     <p>Email: <a href="mailto:you@example.com">you@example.com</a></p>
   </section>
