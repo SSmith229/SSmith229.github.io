@@ -117,10 +117,10 @@
       <aside class="rail" aria-label="Section navigation">
         <nav>
           <ul>
-            <li><a href="#space-programs">About Me</a></li>
-            <li><a href="#tech-trends">Projects</a></li>
-            <li><a href="#latest-news">Key Documents</a></li>
-            <li><a href="#about-us">Contact Me!</a></li>
+            <li><a href="#About Me">About Me</a></li>
+            <li><a href="#Projects">Projects</a></li>
+            <li><a href="#Key Documents">Key Documents</a></li>
+            <li><a href="#Contact Me!">Contact Me!</a></li>
           </ul>
         </nav>
       </aside>
