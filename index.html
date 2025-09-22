@@ -3,19 +3,20 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Stuart Smith</title>
-    <title>Aspiring Researcher</title>
+  <title>Stuart Smith — Aspiring Researcher</title>
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800;900&display=swap" rel="stylesheet">
   <style>
     :root{
-      --bg-image: url(images/annular-solar-eclipse-2003461_1920.jpg); /* ← Replace with your image path */
+      --bg-image: url(images/annular-solar-eclipse-2003461_1920.jpg);
       --text-max: 46rem;
     }
 
     * { box-sizing: border-box; }
     html, body { height: 100%; }
+    html { scroll-behavior: smooth; } /* smooth in-page scrolling */
     body {
       margin: 0;
       font-family: "Inter", system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
@@ -98,7 +99,6 @@
       font-size: clamp(0.8rem, 0.9rem + 0.3vw, 1rem);
       text-transform: uppercase;
       display: inline-block;
-
       /* animation start state */
       opacity: 0;
       transform: translateX(20px);
@@ -106,8 +106,6 @@
       animation: slideInRight 650ms ease-out forwards;
     }
     .rail a:hover{ opacity: 1; transform: translateX(18px); }
-
-    /* Stagger menu items */
     .rail li:nth-child(1) a { animation-delay: 120ms; }
     .rail li:nth-child(2) a { animation-delay: 220ms; }
     .rail li:nth-child(3) a { animation-delay: 320ms; }
@@ -128,6 +126,15 @@
     /* ===== Animations ===== */
     @keyframes fadeInUp { from { opacity: 0; translate: 0 8px; } to { opacity: 1; translate: 0 0; } }
     @keyframes slideInRight { from { opacity: 0; transform: translateX(28px); } to { opacity: 1; transform: translateX(0); } }
+
+    /* ===== Demo section styling (optional) ===== */
+    .section {
+      max-width: 1000px;
+      margin: 3rem auto;
+      padding: 0 1.25rem 3rem;
+      color: #e8e8e8;
+    }
+    .section h2 { margin-top: 0; }
   </style>
 </head>
 <body>
@@ -136,7 +143,7 @@
       <!-- Left: Big headline and credit -->
       <section class="headline" aria-labelledby="hero-title">
         <h1 id="hero-title">Stuart Smith</h1>
-        <p class="credit"> Aspiring Researcher</p>
+        <p class="credit">Aspiring Researcher</p>
       </section>
 
       <!-- Right: Vertical nav rail -->
@@ -153,14 +160,36 @@
     </div>
   </main>
 
-  <!-- Anchors for demo -->
-  <section id="#About Me" hidden></section>
-  <section id="Projects" hidden></section>
-  <section id="Key Documents" hidden></section>
-  <section id="Contact Me!" hidden></section>
+  <!-- Matching, visible sections -->
+  <section id="about-me" class="section">
+    <h2>About Me</h2>
+    <p>Write a short intro here…</p>
+  </section>
+
+  <section id="projects" class="section">
+    <h2>Projects</h2>
+    <ul>
+      <li>Transit light curve pipeline</li>
+      <li>Instrument calibration toolkit</li>
+      <li>Exoplanet candidate classifier</li>
+    </ul>
+  </section>
+
+  <section id="key-documents" class="section">
+    <h2>Key Documents</h2>
+    <ul>
+      <li><a href="docs/cv.pdf">CV</a></li>
+      <li><a href="docs/research-summary.pdf">Research Summary</a></li>
+    </ul>
+  </section>
+
+  <section id="contact-me" class="section">
+    <h2>Contact Me</h2>
+    <p>Email: <a href="mailto:you@example.com">you@example.com</a></p>
+  </section>
 
   <script>
-    // Optional: allow swapping the background image via query param ?bg=URL
+    // Optional: allow swapping the background image via ?bg=URL
     const params = new URLSearchParams(location.search);
     const bg = params.get('bg');
     if (bg) document.documentElement.style.setProperty('--bg-image', `url('${bg}')`);
