@@ -32,6 +32,22 @@
     .btn{ display:inline-flex; align-items:center; justify-content:center; padding:.8rem 1.1rem; border-radius:.8rem; text-decoration:none; font-weight:600; }
     .btn.primary{ background:#2563eb; color:#fff; } .btn.primary:hover{ filter:brightness(1.05); }
     .btn.ghost{ color:#93c5fd; border:1px solid #60a5fa; } .btn.ghost:hover{ background:rgba(96,165,250,.1); }
+
+/* visitor counter badge */
+.visit-badge {
+  position: fixed;
+  right: 14px;
+  bottom: 14px;
+  z-index: 9999;
+  font: 600 12px/1.1 system-ui, -apple-system, Segoe UI, Roboto, Inter, sans-serif;
+  color: #eaf2ff;
+  background: rgba(15, 23, 42, 0.7);
+  border: 1px solid rgba(255,255,255,0.15);
+  border-radius: 999px;
+  padding: 8px 10px;
+  backdrop-filter: blur(6px);
+}
+
   </style>
 </head>
 <body>
@@ -64,5 +80,38 @@
     if (bg) document.documentElement.style.setProperty('--bg-image', `url('${bg}')`);
   </script>
   <div aria-hidden="true" style="height:2cm"></div>
+
+  <!-- visitor counter badge -->
+<div class="visit-badge" aria-label="Cumulative site visitors">
+  <span id="visitor-count">—</span> visits
+</div>
+
+<script>
+(() => {
+  const NAMESPACE = "stuartsmith-site";   // change if you want a different counter
+  const KEY = "total";                    // same key on all pages => cumulative site total
+  const SEEN_FLAG = "ss_visitor_counted"; // localStorage gate so we only count once
+  const API = "https://api.countapi.xyz"; // public counter API
+
+  const el = document.getElementById("visitor-count");
+  const alreadyCounted = localStorage.getItem(SEEN_FLAG);
+
+  const url = alreadyCounted
+    ? `${API}/get/${encodeURIComponent(NAMESPACE)}/${encodeURIComponent(KEY)}`
+    : `${API}/hit/${encodeURIComponent(NAMESPACE)}/${encodeURIComponent(KEY)}`;
+
+  fetch(url)
+    .then(r => r.json())
+    .then(data => {
+      if (!alreadyCounted) localStorage.setItem(SEEN_FLAG, "1");
+      el.textContent = Number(data.value).toLocaleString();
+    })
+    .catch(() => {
+      // hide badge if the API is blocked or fails
+      el.closest(".visit-badge").style.display = "none";
+    });
+})();
+</script>
+
 </body>
 </html>
