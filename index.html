@@ -88,14 +88,15 @@
 
 <script>
 (() => {
-  const NS   = "stuartsmith-site";      // change to a unique name if you like
-  const KEY  = "total";                  // site-wide key
-  const FLAG = "ss_visitor_counted";     // localStorage gate
+  const NS   = "stuartsmith-site";      // keep the same across pages for a site-wide total
+  const KEY  = "total";
+  const FLAG = "ss_visitor_counted";     // counts each browser once
   const API  = "https://api.countapi.xyz";
-  const el   = document.getElementById("visitor-count");
-  const render = (v) => el.textContent = Number(v).toLocaleString();
+  const num  = document.getElementById("visitor-count");
+  const badge = document.querySelector(".visit-badge");
 
-  // helpers that throw on non-2xx so we can fall back
+  const render = (v) => num.textContent = Number(v).toLocaleString();
+
   const get = () =>
     fetch(`${API}/get/${encodeURIComponent(NS)}/${encodeURIComponent(KEY)}`)
       .then(r => { if (!r.ok) throw new Error("GET failed"); return r.json(); });
@@ -106,19 +107,19 @@
 
   const counted = localStorage.getItem(FLAG) === "1";
 
-  // If we've "counted" before but the namespace/key is new, GET may 404 -> fall back to HIT.
   (counted ? get() : hit())
-    .catch(() => hit())
+    .catch(() => hit())                // if GET 404s on a new counter, create it
     .then(data => {
       if (!counted) localStorage.setItem(FLAG, "1");
       render((data && data.value) || 0);
     })
-    .catch(err => {
-      console.warn("Visitor counter error:", err);
-      el.textContent = "Oops! We can't register this visit!"; // show badge even if API blocked
+    .catch(() => {
+      // If the API is blocked, show a friendly fallback
+      badge.textContent = "Visitor counter offline";
     });
 })();
 </script>
+
 
 
 </body>
