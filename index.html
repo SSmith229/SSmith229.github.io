@@ -88,26 +88,34 @@
 
 <script>
 (() => {
-  const NS   = "stuartsmith-site";      // keep the same across pages for a site-wide total
+  const NS   = "stuartsmith-site";      // site-wide namespace
   const KEY  = "total";
-  const FLAG = "ss_visitor_counted";     // counts each browser once
+  const FLAG = "ss_visitor_counted";
   const API  = "https://api.countapi.xyz";
-  const num  = document.getElementById("visitor-count");
-  const badge = document.querySelector(".visit-badge");
 
-  const render = (v) => num.textContent = Number(v).toLocaleString();
+  function ready(fn){
+    if (document.readyState !== "loading") fn();
+    else document.addEventListener("DOMContentLoaded", fn);
+  }
 
-  const get = () =>
-    fetch(`${API}/get/${encodeURIComponent(NS)}/${encodeURIComponent(KEY)}`)
-      .then(r => { if (!r.ok) throw new Error("GET failed"); return r.json(); });
+  ready(() => {
+    const num   = document.getElementById("visitor-count");
+    const badge = document.querySelector(".visit-badge");
+    if (!num || !badge) return; // badge not on this page
 
-  const hit = () =>
-    fetch(`${API}/hit/${encodeURIComponent(NS)}/${encodeURIComponent(KEY)}`)
-      .then(r => { if (!r.ok) throw new Error("HIT failed"); return r.json(); });
+    const render = (v) => num.textContent = Number(v).toLocaleString();
 
-  const counted = localStorage.getItem(FLAG) === "1";
-  
-  (counted ? get() : hit())
+    const get = () =>
+      fetch(`${API}/get/${encodeURIComponent(NS)}/${encodeURIComponent(KEY)}`)
+        .then(r => { if (!r.ok) throw new Error("GET failed"); return r.json(); });
+
+    const hit = () =>
+      fetch(`${API}/hit/${encodeURIComponent(NS)}/${encodeURIComponent(KEY)}`)
+        .then(r => { if (!r.ok) throw new Error("HIT failed"); return r.json(); });
+
+    const counted = localStorage.getItem(FLAG) === "1";
+
+    (counted ? get() : hit())
       .catch(() => hit())                      // auto-create if GET 404s
       .then(data => {
         if (!counted) localStorage.setItem(FLAG, "1");
@@ -115,11 +123,12 @@
       })
       .catch(err => {
         console.warn("Visitor counter error:", err);
-        badge.textContent = "Visitor counter offline";
+        badge.textContent = "Visitor Counter Offline";
       });
   });
 })();
 </script>
+
 
 
 </body>
