@@ -81,53 +81,20 @@
   </script>
   <div aria-hidden="true" style="height:2cm"></div>
 
-  <!-- visitor counter badge -->
-<div class="visit-badge" aria-label="Cumulative site visitors" aria-live="polite">
-  You are visitor number: <span id="visitor-count">—</span>
+<!-- visitor counter badge (no JS needed) -->
+<div class="visit-badge" aria-live="polite">
+  <img
+    class="visit-img"
+    src="https://hits.seeyoufarm.com/api/count/incr/badge.svg
+      ?url=stuartsmith-site-2025
+      &title=You%20are%20visitor%20number
+      &count_bg=%230A84FF
+      &title_bg=%23000000
+      &edge_flat=true"
+    alt="You are visitor number"
+    onerror="this.closest('.visit-badge').style.display='none'">
 </div>
 
-<script>
-(() => {
-  const NS   = "stuartsmith-site";      // site-wide namespace
-  const KEY  = "total";
-  const FLAG = "ss_visitor_counted";
-  const API  = "https://api.countapi.xyz";
-
-  function ready(fn){
-    if (document.readyState !== "loading") fn();
-    else document.addEventListener("DOMContentLoaded", fn);
-  }
-
-  ready(() => {
-    const num   = document.getElementById("visitor-count");
-    const badge = document.querySelector(".visit-badge");
-    if (!num || !badge) return; // badge not on this page
-
-    const render = (v) => num.textContent = Number(v).toLocaleString();
-
-    const get = () =>
-      fetch(`${API}/get/${encodeURIComponent(NS)}/${encodeURIComponent(KEY)}`)
-        .then(r => { if (!r.ok) throw new Error("GET failed"); return r.json(); });
-
-    const hit = () =>
-      fetch(`${API}/hit/${encodeURIComponent(NS)}/${encodeURIComponent(KEY)}`)
-        .then(r => { if (!r.ok) throw new Error("HIT failed"); return r.json(); });
-
-    const counted = localStorage.getItem(FLAG) === "1";
-
-    (counted ? get() : hit())
-      .catch(() => hit())                      // auto-create if GET 404s
-      .then(data => {
-        if (!counted) localStorage.setItem(FLAG, "1");
-        render((data && data.value) || 0);
-      })
-      .catch(err => {
-        console.warn("Visitor counter error:", err);
-        badge.textContent = "Visitor Counter Offline";
-      });
-  });
-})();
-</script>
 
 
 
