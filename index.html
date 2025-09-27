@@ -83,13 +83,33 @@
   <!-- keep your bottom breathing room -->
   <div aria-hidden="true" style="height:2cm"></div>
 
-  <!-- visitor counter badge (no JS needed) -->
-  <div class="visit-badge" aria-live="polite">
-    <img
-      class="visit-img"
-      src="https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=stuartsmith-site-2025&title=You%20are%20visitor%20number&count_bg=%230A84FF&title_bg=%23000000&edge_flat=true"
-      alt="You are visitor number"
-      onerror="this.closest('.visit-badge').style.display='none'">
-  </div>
+  <!-- visitor counter badge (robust) -->
+<div class="visit-badge" aria-live="polite">
+  <span class="badge-fallback" style="display:none">Visitor counter offline</span>
+  <img class="visit-img" alt="You are visitor number" />
+</div>
+
+<script>
+(function () {
+  const img = document.querySelector(".visit-badge .visit-img");
+  const fallback = document.querySelector(".visit-badge .badge-fallback");
+
+  // Build a unique key from your real URL (works on production, localhost, etc.)
+  const key = encodeURIComponent(location.origin + location.pathname);
+
+  // One-line, fully encoded URL (avoid line breaks/spaces)
+  const src = "https://hits.seeyoufarm.com/api/count/incr/badge.svg"
+            + "?url=" + key
+            + "&title=You%20are%20visitor%20number"
+            + "&count_bg=%230A84FF"
+            + "&title_bg=%23000000"
+            + "&edge_flat=true";
+
+  img.onload = () => { fallback.style.display = "none"; };
+  img.onerror = () => { img.style.display = "none"; fallback.style.display = "inline"; };
+  img.src = src;
+})();
+</script>
+
 </body>
 </html>
