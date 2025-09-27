@@ -82,7 +82,9 @@
   <div aria-hidden="true" style="height:2cm"></div>
 
   <!-- visitor counter badge -->
-<div class="visit-badge"><span id="visitor-count">—</span> visits</div>
+<div class="visit-badge" aria-label="Cumulative site visitors" aria-live="polite">
+  You are visitor number: <span id="visitor-count">—</span>
+</div>
 
 <script>
 (() => {
@@ -91,7 +93,6 @@
   const FLAG = "ss_visitor_counted";     // localStorage gate
   const API  = "https://api.countapi.xyz";
   const el   = document.getElementById("visitor-count");
-
   const render = (v) => el.textContent = Number(v).toLocaleString();
 
   // helpers that throw on non-2xx so we can fall back
