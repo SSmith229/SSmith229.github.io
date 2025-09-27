@@ -106,10 +106,20 @@
       .then(r => { if (!r.ok) throw new Error("HIT failed"); return r.json(); });
 
   const counted = localStorage.getItem(FLAG) === "1";
-
-
+  
+  (counted ? get() : hit())
+      .catch(() => hit())                      // auto-create if GET 404s
+      .then(data => {
+        if (!counted) localStorage.setItem(FLAG, "1");
+        render((data && data.value) || 0);
+      })
+      .catch(err => {
+        console.warn("Visitor counter error:", err);
+        badge.textContent = "Visitor counter offline";
+      });
+  });
+})();
 </script>
-
 
 
 </body>
