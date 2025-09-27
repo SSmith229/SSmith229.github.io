@@ -107,17 +107,7 @@
 
   const counted = localStorage.getItem(FLAG) === "1";
 
-  (counted ? get() : hit())
-    .catch(() => hit())                // if GET 404s on a new counter, create it
-    .then(data => {
-      if (!counted) localStorage.setItem(FLAG, "1");
-      render((data && data.value) || 0);
-    })
-    .catch(() => {
-      // If the API is blocked, show a friendly fallback
-      badge.textContent = "Visitor Counter Offline!";
-    });
-})();
+
 </script>
 
 
