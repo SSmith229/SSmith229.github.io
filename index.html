@@ -82,36 +82,43 @@
   <div aria-hidden="true" style="height:2cm"></div>
 
   <!-- visitor counter badge -->
-<div class="visit-badge" aria-label="Cumulative site visitors">
-  <span id="visitor-count">—</span> visits
-</div>
+<div class="visit-badge"><span id="visitor-count">—</span> visits</div>
 
 <script>
 (() => {
-  const NAMESPACE = "stuartsmith-site";   // change if you want a different counter
-  const KEY = "total";                    // same key on all pages => cumulative site total
-  const SEEN_FLAG = "ss_visitor_counted"; // localStorage gate so we only count once
-  const API = "https://api.countapi.xyz"; // public counter API
+  const NS   = "stuartsmith-site";      // change to a unique name if you like
+  const KEY  = "total";                  // site-wide key
+  const FLAG = "ss_visitor_counted";     // localStorage gate
+  const API  = "https://api.countapi.xyz";
+  const el   = document.getElementById("visitor-count");
 
-  const el = document.getElementById("visitor-count");
-  const alreadyCounted = localStorage.getItem(SEEN_FLAG);
+  const render = (v) => el.textContent = Number(v).toLocaleString();
 
-  const url = alreadyCounted
-    ? `${API}/get/${encodeURIComponent(NAMESPACE)}/${encodeURIComponent(KEY)}`
-    : `${API}/hit/${encodeURIComponent(NAMESPACE)}/${encodeURIComponent(KEY)}`;
+  // helpers that throw on non-2xx so we can fall back
+  const get = () =>
+    fetch(`${API}/get/${encodeURIComponent(NS)}/${encodeURIComponent(KEY)}`)
+      .then(r => { if (!r.ok) throw new Error("GET failed"); return r.json(); });
 
-  fetch(url)
-    .then(r => r.json())
+  const hit = () =>
+    fetch(`${API}/hit/${encodeURIComponent(NS)}/${encodeURIComponent(KEY)}`)
+      .then(r => { if (!r.ok) throw new Error("HIT failed"); return r.json(); });
+
+  const counted = localStorage.getItem(FLAG) === "1";
+
+  // If we've "counted" before but the namespace/key is new, GET may 404 -> fall back to HIT.
+  (counted ? get() : hit())
+    .catch(() => hit())
     .then(data => {
-      if (!alreadyCounted) localStorage.setItem(SEEN_FLAG, "1");
-      el.textContent = Number(data.value).toLocaleString();
+      if (!counted) localStorage.setItem(FLAG, "1");
+      render((data && data.value) || 0);
     })
-    .catch(() => {
-      // hide badge if the API is blocked or fails
-      el.closest(".visit-badge").style.display = "none";
+    .catch(err => {
+      console.warn("Visitor counter error:", err);
+      el.textContent = "offline"; // show badge even if API blocked
     });
 })();
 </script>
+
 
 </body>
 </html>
