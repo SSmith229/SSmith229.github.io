@@ -67,6 +67,39 @@
     justify-content: center;
   }
 }
+.favourites {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  margin-top: 2rem;
+  padding: 1.5rem;
+  background-color: #f9f9f9; /* subtle background highlight */
+  border-radius: 10px;
+}
+
+.favourite-category h3 {
+  margin-bottom: 0.5rem;
+  font-weight: 700;
+  border-bottom: 2px solid #ccc;
+  padding-bottom: 0.25rem;
+}
+
+.favourite-category ul {
+  list-style-type: none;
+  padding-left: 0;
+}
+
+.favourite-category li {
+  margin: 0.25rem 0;
+}
+
+/* Make it stack on mobile */
+@media (max-width: 768px) {
+  .favourites {
+    grid-template-columns: 1fr;
+  }
+}
+
 
   </style>
 </head>
