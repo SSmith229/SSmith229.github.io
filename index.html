@@ -84,33 +84,7 @@
   <!-- keep your bottom breathing room -->
   <div aria-hidden="true" style="height:2cm"></div>
 
-  <!-- visitor counter badge (robust) -->
-<div class="visit-badge" aria-live="polite">
-  <span class="badge-fallback" style="display:none">Visitor Counter Offline</span>
-  <img class="visit-img" alt="You are Visitor Number:" />
-</div>
-
-<script>
-(function () {
-  const img = document.querySelector(".visit-badge .visit-img");
-  const fallback = document.querySelector(".visit-badge .badge-fallback");
-
-  // Build a unique key from your real URL (works on production, localhost, etc.)
-  const key = encodeURIComponent(location.origin + location.pathname);
-
-  // One-line, fully encoded URL (avoid line breaks/spaces)
-  const src = "https://hits.seeyoufarm.com/api/count/incr/badge.svg"
-            + "?url=" + key
-            + "&title=You%20are%20visitor%20number"
-            + "&count_bg=%230A84FF"
-            + "&title_bg=%23000000"
-            + "&edge_flat=true";
-
-  img.onload = () => { fallback.style.display = "none"; };
-  img.onerror = () => { img.style.display = "none"; fallback.style.display = "inline"; };
-  img.src = src;
-})();
-</script>
+<script type="text/javascript" src="https://cdn.livetrafficfeed.com/static/flag-counter/live.v2.js?row=2&col=2&cod=1&flg=1&bg=ffffff&txt=000000&ro=0&tz=Europe%2FLondon"></script><noscript id="LTF_flags_href"><a href="https://livetrafficfeed.com/flag-counter">Flags Counter</a></noscript>
 
 </body>
 </html>
