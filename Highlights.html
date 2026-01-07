@@ -102,11 +102,6 @@
       color:#e8e8e8;
     }
 
-    .content a{
-      color:#fff;
-      text-decoration:underline;
-    }
-
     h2{
       margin-top:2.5rem;
       margin-bottom:0.75rem;
@@ -140,6 +135,12 @@
       height:auto;
       border-radius:10px;
       margin-bottom:0.75rem;
+      cursor: zoom-in;
+      transition: transform 150ms ease;
+    }
+
+    .figure-card img:hover{
+      transform: scale(1.01);
     }
 
     .figure-card figcaption{
@@ -152,7 +153,6 @@
 
     .news{
       display:grid;
-      grid-template-columns:1fr;
       gap:1.25rem;
       margin-top:1.5rem;
     }
@@ -179,20 +179,25 @@
       text-decoration:underline;
     }
 
-    .news-card p{
-      margin:0;
-      font-size:0.95rem;
-      line-height:1.6;
-      color:#e0e0e0;
+    /* ---------------- LIGHTBOX ---------------- */
+
+    .lightbox {
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.9);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      z-index: 1000;
+      padding: 2rem;
     }
 
-    /* ---------------- MISC ---------------- */
-
-    hr{
-      border:none;
-      height:1px;
-      background:rgba(255,255,255,0.15);
-      margin:3rem 0 2rem;
+    .lightbox img {
+      max-width: 95%;
+      max-height: 95%;
+      border-radius: 8px;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.8);
+      cursor: zoom-out;
     }
 
   </style>
@@ -200,19 +205,19 @@
 
 <body>
 
-<main class="hero" role="main">
+<main class="hero">
   <div class="hero__content">
     <section class="headline">
       <h1>Research Highlights</h1>
     </section>
 
-    <aside class="rail" aria-label="Section navigation">
+    <aside class="rail">
       <nav>
         <ul>
-        <li><a href="about.html">About Me</a></li>
-            <li><a href="projects.html">Projects</a></li>
-            <li><a href="Highlights.html">Highlights</a></li>
-            <li><a href="key_documents.html">Key Documents</a></li>
+          <li><a href="about.html">About Me</a></li>
+          <li><a href="projects.html">Projects</a></li>
+          <li><a href="Highlights.html">Highlights</a></li>
+          <li><a href="key_documents.html">Key Documents</a></li>
           <li><a href="https://www.linkedin.com/in/stuartsmith229">LinkedIn</a></li>
         </ul>
       </nav>
@@ -224,19 +229,14 @@
   <p><a href="index.html">← Back to Home</a></p>
 
   <h2>Research Figures</h2>
-  <p>
-    Selected figures from recent academic and MSc-level work, illustrating
-    methods and results relevant to exoplanet detection and instrumentation.
-  </p>
 
   <div class="figures">
 
     <figure class="figure-card">
       <img src="images/3MAGZOOM.PNG" alt="Magnetic Noise over Distance for a 3 Magnetometer Setup">
       <figcaption>
-        <strong>Plotting Magnetic Noise Over Distance</strong>
-        Signal recovery as a function of stellar noise and cadence, demonstrating
-        detectability limits for small-radius exoplanets.
+        <strong>Plotting Magnetic Noise Over Distance.</strong>
+        Magnetic noise as a function of sensor separation for a three-magnetometer configuration.
       </figcaption>
     </figure>
 
@@ -244,8 +244,7 @@
       <img src="images/graph2.png" alt="Instrument noise contribution breakdown">
       <figcaption>
         <strong>Instrument Noise Budget.</strong>
-        Relative contributions of photon noise, read noise, and systematic effects
-        in a representative observing setup.
+        Relative contributions of photon noise, read noise, and systematic effects.
       </figcaption>
     </figure>
 
@@ -268,12 +267,12 @@
     <article class="news-card">
       <h3>
         <a href="https://le.ac.uk/news/2025/may/students-united-states-university-landmark-space-missions" target="_blank" rel="noopener">
-          MSc Space Exploration Systems - An Overseas Partnership
+          MSc Space Exploration Systems – An Overseas Partnership
         </a>
       </h3>
       <p>
-        Summary article discussing the brand new partnership between the University of Leicester, and the University of Dayton. This partnership 
-        facilitated the overseas section of my MSc Project. 
+        Overview of the new partnership between the University of Leicester and the University of Dayton,
+        which enabled the overseas component of my MSc project.
       </p>
     </article>
 
@@ -284,23 +283,51 @@
         </a>
       </h3>
       <p>
-        Workshop led by Dr Franco Malerba – the first Italian astronaut to go into space. Other speakers included: Piero Messidoro, former Deputy Chief Technical Officer at global space manufacturer Thales Alenia Space, and Professor Anu Ojha, the Director of Championing Space at the UK Space Agency.
+        Workshop led by Dr Franco Malerba with contributions from senior figures in European spaceflight
+        and industry.
       </p>
     </article>
 
   </div>
-
 </section>
 
+<!-- LIGHTBOX ELEMENT -->
+<div class="lightbox" id="lightbox">
+  <img src="" alt="">
+</div>
+
 <script>
+  // Background image override
   const params = new URLSearchParams(location.search);
   const bg = params.get('bg');
   if (bg) {
     document.documentElement.style.setProperty('--bg-image', `url('${bg}')`);
   }
-</script>
 
-<div aria-hidden="true" style="height:2cm"></div>
+  // Lightbox functionality
+  const lightbox = document.getElementById('lightbox');
+  const lightboxImg = lightbox.querySelector('img');
+
+  document.querySelectorAll('.figure-card img').forEach(img => {
+    img.addEventListener('click', () => {
+      lightboxImg.src = img.src;
+      lightboxImg.alt = img.alt;
+      lightbox.style.display = 'flex';
+    });
+  });
+
+  lightbox.addEventListener('click', () => {
+    lightbox.style.display = 'none';
+    lightboxImg.src = '';
+  });
+
+  document.addEventListener('keydown', e => {
+    if (e.key === 'Escape') {
+      lightbox.style.display = 'none';
+      lightboxImg.src = '';
+    }
+  });
+</script>
 
 </body>
 </html>
