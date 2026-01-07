@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Research Highlights</title>
+
+  <link rel="icon" href="images/resized-icon-32x32.ico" type="image/ico" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800;900&display=swap" rel="stylesheet">
+
+  <style>
+    :root{
+      --bg-image: url('images/annular-solar-eclipse-2003461_1920.jpg');
+      --text-max: 46rem;
+    }
+
+    * { box-sizing: border-box; }
+    html, body { height: 100%; }
+
+    body {
+      margin: 0;
+      font-family: "Inter", system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
+      color: #fff;
+      background: #000;
+    }
+
+    /* ---------------- HERO ---------------- */
+
+    .hero{
+      position:relative;
+      min-height:70dvh;
+      display:grid;
+      grid-template-columns:1fr minmax(0,1280px) 1fr;
+      background-image:
+        radial-gradient(90rem 70rem at 25% 50%, rgba(0,0,0,0.05), rgba(0,0,0,0.4)),
+        linear-gradient(to right, rgba(0,0,0,0.75) 0%, rgba(0,0,0,0.55) 35%, rgba(0,0,0,0.25) 60%, rgba(0,0,0,0.55) 100%),
+        var(--bg-image);
+      background-size:cover;
+      background-position:50% 45%;
+      background-repeat:no-repeat;
+      isolation:isolate;
+    }
+
+    .hero__content{
+      grid-column:2;
+      display:grid;
+      grid-template-columns:1fr 380px;
+      gap:2rem;
+      padding:clamp(1rem,2.5vw,2rem);
+      min-height:70dvh;
+      align-items:center;
+    }
+
+    .headline h1{
+      margin:0;
+      line-height:0.95;
+      font-weight:900;
+      letter-spacing:-0.02em;
+      font-size:clamp(2.4rem,6vw + 0.2rem,4.2rem);
+    }
+
+    .rail{
+      align-self:center;
+      justify-self:end;
+      text-align:right;
+    }
+
+    .rail nav ul{
+      list-style:none;
+      margin:0;
+      padding:0;
+      display:grid;
+      gap:0.65rem;
+    }
+
+    .rail a{
+      color:#fff;
+      text-decoration:none;
+      font-weight:800;
+      letter-spacing:0.08em;
+      font-size:clamp(0.8rem,0.9rem + 0.3vw,1rem);
+      text-transform:uppercase;
+    }
+
+    @media (max-width:980px){
+      .hero__content{ grid-template-columns:1fr; }
+      .rail{
+        justify-self:start;
+        text-align:left;
+        margin-top:2rem;
+      }
+    }
+
+    /* ---------------- CONTENT ---------------- */
+
+    .content{
+      max-width:1100px;
+      margin:3rem auto 4rem;
+      padding:0 1.25rem;
+      color:#e8e8e8;
+    }
+
+    .content a{
+      color:#fff;
+      text-decoration:underline;
+    }
+
+    h2{
+      margin-top:2.5rem;
+      margin-bottom:0.75rem;
+      font-size:1.6rem;
+      font-weight:800;
+    }
+
+    p{
+      line-height:1.7;
+      margin:0 0 1rem 0;
+    }
+
+    /* ---------------- FIGURES ---------------- */
+
+    .figures{
+      display:grid;
+      grid-template-columns:repeat(auto-fit, minmax(280px, 1fr));
+      gap:2rem;
+      margin:1.5rem 0 2.5rem;
+    }
+
+    .figure-card{
+      background:#0c0c0c;
+      padding:1rem;
+      border-radius:14px;
+      box-shadow:0 10px 28px rgba(0,0,0,0.4);
+    }
+
+    .figure-card img{
+      width:100%;
+      height:auto;
+      border-radius:10px;
+      margin-bottom:0.75rem;
+    }
+
+    .figure-card figcaption{
+      font-size:0.9rem;
+      line-height:1.6;
+      color:#dcdcdc;
+    }
+
+    /* ---------------- NEWS ---------------- */
+
+    .news{
+      display:grid;
+      grid-template-columns:1fr;
+      gap:1.25rem;
+      margin-top:1.5rem;
+    }
+
+    .news-card{
+      padding:1.25rem 1.5rem;
+      background:#0c0c0c;
+      border-radius:12px;
+      box-shadow:0 8px 22px rgba(0,0,0,0.35);
+    }
+
+    .news-card h3{
+      margin:0 0 0.5rem 0;
+      font-size:1.05rem;
+      font-weight:700;
+    }
+
+    .news-card a{
+      color:#fff;
+      text-decoration:none;
+    }
+
+    .news-card a:hover{
+      text-decoration:underline;
+    }
+
+    .news-card p{
+      margin:0;
+      font-size:0.95rem;
+      line-height:1.6;
+      color:#e0e0e0;
+    }
+
+    /* ---------------- MISC ---------------- */
+
+    hr{
+      border:none;
+      height:1px;
+      background:rgba(255,255,255,0.15);
+      margin:3rem 0 2rem;
+    }
+
+  </style>
+</head>
+
+<body>
+
+<main class="hero" role="main">
+  <div class="hero__content">
+    <section class="headline">
+      <h1>Research Highlights</h1>
+    </section>
+
+    <aside class="rail" aria-label="Section navigation">
+      <nav>
+        <ul>
+          <li><a href="about.html">About Me</a></li>
+          <li><a href="projects.html" aria-current="page">Projects</a></li>
+          <li><a href="key_documents.html">Key Documents</a></li>
+          <li><a href="https://www.linkedin.com/in/stuartsmith229">LinkedIn</a></li>
+        </ul>
+      </nav>
+    </aside>
+  </div>
+</main>
+
+<section class="content">
+  <p><a href="index.html">← Back to Home</a></p>
+
+  <h2>Research Figures</h2>
+  <p>
+    Selected figures from recent academic and MSc-level work, illustrating
+    methods and results relevant to exoplanet detection and instrumentation.
+  </p>
+
+  <div class="figures">
+
+    <figure class="figure-card">
+      <img src="images/graph1.png" alt="Transit depth versus noise floor">
+      <figcaption>
+        <strong>Transit Sensitivity Analysis.</strong>
+        Signal recovery as a function of stellar noise and cadence, demonstrating
+        detectability limits for small-radius exoplanets.
+      </figcaption>
+    </figure>
+
+    <figure class="figure-card">
+      <img src="images/graph2.png" alt="Instrument noise contribution breakdown">
+      <figcaption>
+        <strong>Instrument Noise Budget.</strong>
+        Relative contributions of photon noise, read noise, and systematic effects
+        in a representative observing setup.
+      </figcaption>
+    </figure>
+
+    <figure class="figure-card">
+      <img src="images/graph3.png" alt="Detection efficiency curve">
+      <figcaption>
+        <strong>Detection Efficiency.</strong>
+        Recovery fraction across injected transit depths for simulated survey data.
+      </figcaption>
+    </figure>
+
+  </div>
+
+  <hr>
+
+  <h2>Related Coverage</h2>
+
+  <div class="news">
+
+    <article class="news-card">
+      <h3>
+        <a href="https://example.com/news-article-1" target="_blank" rel="noopener">
+          MSc Project Highlighted by University of Leicester
+        </a>
+      </h3>
+      <p>
+        Summary article discussing my MSc research into exoplanet detection methods
+        and their application to future surveys.
+      </p>
+    </article>
+
+    <article class="news-card">
+      <h3>
+        <a href="https://example.com/news-article-2" target="_blank" rel="noopener">
+          Student Research Feature: Exoplanet Instrumentation
+        </a>
+      </h3>
+      <p>
+        Interview-style feature focusing on instrumentation challenges for detecting
+        Earth-sized exoplanets.
+      </p>
+    </article>
+
+  </div>
+
+</section>
+
+<script>
+  const params = new URLSearchParams(location.search);
+  const bg = params.get('bg');
+  if (bg) {
+    document.documentElement.style.setProperty('--bg-image', `url('${bg}')`);
+  }
+</script>
+
+<div aria-hidden="true" style="height:2cm"></div>
+
+</body>
+</html>
